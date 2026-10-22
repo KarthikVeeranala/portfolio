@@ -43,6 +43,7 @@ import {
   MapPin,
   CheckCircle2,
   ExternalLink,
+  Download,
 } from "lucide-react";
 import ErrorBoundary from "./components/ErrorBoundary";
 
@@ -305,7 +306,7 @@ const projects = [
   {
     slug: "city-of-aethel",
     title: "CITY OF AETHEL & 2D ARCADE",
-    type: "Aicade Internship / IGDC Top 45 Finalist",
+    type: "Aicade Internship / IGDC 2025 Indie Top 40",
     description: "A Phaser 3 showcase with multi-phase boss choreography, 5-hit melee combos, i-frame dodges, and eight playable web prototypes.",
     tags: ["Phaser 3", "Melee", "WebGL"],
     tone: "ember",
@@ -317,7 +318,7 @@ const projects = [
         type: "video" as const,
         url: assetUrl("videos/05_city_of_aethel.mp4"),
         title: "City of Aethel Boss Arena Reel",
-        caption: "IGDC 2024 Top 45 Finalist: 5-hit melee combos, dodge i-frames, and boss choreography",
+        caption: "IGDC 2025 Indie Top 40: 5-hit melee combos, dodge i-frames, and boss choreography",
       },
       {
         type: "image" as const,
@@ -391,6 +392,18 @@ function TopNav({ theme, onToggleTheme }: { theme: "beige" | "neon"; onToggleThe
           </Link>
         ))}
         <Link href="/portfolio/" className={`nav-cta ${isActive("/portfolio/", location) ? "is-active" : ""}`}>Portfolio</Link>
+        <a
+          href={assetUrl("Karthik_Veeranala_Resume.pdf")}
+          download="Karthik_Veeranala_Resume.pdf"
+          className="nav-cta nav-cta--resume"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Download Karthik Veeranala's Resume (PDF)"
+          style={{ display: "inline-flex", alignItems: "center", gap: "5px" }}
+        >
+          <Download size={13} />
+          <span>Resume</span>
+        </a>
       </nav>
       <button className="theme-toggle" onClick={onToggleTheme} aria-label={theme === "neon" ? "Switch to beige day mode" : "Switch to neon night mode"} title={theme === "neon" ? "Beige day mode" : "Neon night mode"}>{theme === "neon" ? <Sun size={13} /> : <Moon size={13} />}<span>{theme === "neon" ? "DAY" : "NIGHT"}</span></button>
       <button className="site-nav__menu" onClick={() => setMenuOpen((open) => !open)} aria-expanded={menuOpen} aria-label={menuOpen ? "Close menu" : "Open menu"}>
@@ -1004,7 +1017,7 @@ function CheatTerminal({
         "PLAYER: KARTHIK VEERANALA",
         "ROLE: Game Developer & Designer (B.Tech CSE, IARE Hyderabad)",
         "ENGINES: Unreal Engine 5.7 / 4 (95%), C++ Gameplay (95%), Phaser 2D (85%)",
-        "ACCOLADES: 1st Place CodeDay 2.0 (The Interlude), 2nd HackRush, Top 3 FrostHacks, Top 45 IGDC Indie Finalist",
+        "ACCOLADES: 1st Place CodeDay 2.0 (The Interlude), 2nd HackRush, Top 3 FrostHacks, IGDC 2025 Indie Top 40",
         "COMMUNITY: President, Elysium Gaming Club (Organized Collegiate Esports Events)",
       ]);
       setInput("");
@@ -1406,7 +1419,7 @@ const contributionDetails: Record<string, { role: string; systems: string[]; sni
   "the-interlude": { role: "Solo Lead Gameplay & Combat Developer (24-Hour Competitive Sprint)", systems: ["6-DOF Zero-Gravity Physics: Responsive thruster inertia, pitch/yaw/roll torque dampening, and velocity vector alignment in zero gravity.", "Predictive Lead-Target AI: State-machine enemy AI calculating velocity vectors, lead-intercept angles, and evasive rolls.", "Visceral Combat Feedback: Procedural camera shake, laser collision particle trails via Niagara, and spatial 3D audio.", "Escalating Wave Director: Dynamic difficulty balancing managing enemy squad spawns and capital cruiser encounters."], snippet: `// Predictive Lead-Target Intercept Math\nFVector USpaceCombatComponent::CalculateLeadTarget(\n    const AActor* Target, float ProjectileSpeed, float DeltaTime) {\n  if (!Target) return FVector::ZeroVector;\n\n  FVector TargetVelocity = Target->GetVelocity();\n  float Distance = FVector::Dist(GetOwner()->GetActorLocation(), Target->GetActorLocation());\n  float TimeToImpact = Distance / FMath::Max(ProjectileSpeed, 100.0f);\n\n  // Lead compensation position vector\n  return Target->GetActorLocation() + (TargetVelocity * TimeToImpact);\n}`, metrics: ["🥇 1st Place Overall / Honor", "24-Hour Hackathon / Dev Cycle", "Unreal Engine 4 / Engine", "6-DOF Newtonian / Physics Model"] },
   byteoasis: { role: "Lead Gameplay Developer & Puzzle Mechanics Designer (48-Hour Hackathon)", systems: ["In-Game Terminal Simulator: Custom syntax parser supporting commandline input, flag validation, and state triggers.", "Environmental Logic Mechanics: Water reflection shaders, day/night lighting cycles, and puzzle-triggered island drawbridges.", "Diegetic HUD & Interaction: Integrated tablet UI displaying logic logs, signal frequency decoders, and circuit status.", "Procedural Island Clues: Dynamic clue generation requiring algorithmic thinking and logic gates to bypass security barriers."], snippet: `// In-Game Terminal Command Dispatcher\nbool UTerminalParser::ExecuteCommand(const FString& InputCmd) {\n  TArray<FString> Tokens;\n  InputCmd.TrimStartAndEnd().ParseIntoArray(Tokens, TEXT(" "), true);\n  if (Tokens.Num() == 0) return false;\n\n  if (Tokens[0].Equals(TEXT("bypass_grid"), ESearchCase::IgnoreCase)) {\n    if (Tokens.Contains(TEXT("--force"))) {\n      UnlockSecurityGate();\n      return true;\n    }\n  }\n  return false;\n}`, metrics: ["🥈 2nd Place Overall / Honor", "48-Hour Hackathon / Dev Cycle", "Unreal Engine 4 / Engine", "Logic & Code Terminals / Puzzles"] },
   "geek-o-wars": { role: "Lead Gameplay Engineer & Shaders Developer (36-Hour Hackathon)", systems: ["TPS Character Controller: Responsive sprint, aim-down-sights, weapon overheating math, and projectile recoil dissipation.", "Cyber Motherboard Environment: Custom neon cyber shaders, reactive trace circuits, and emissive pulse heat sinks.", "Multi-Class Malware Spawner: Fast melee rushers, ranged trojan spreaders, and heavy boss anomalies with coordinated flanking.", "Wave Survival Resource Tension: Ammo scarcity drops, overheating cooldown balancing, and dynamic score multipliers."], snippet: `// Weapon Heat Dissipation & Firing Logic\nvoid AGeekWeapon::FireProjectile() {\n  if (CurrentHeat >= MaxHeatLimit) {\n    TriggerOverheatCooldown();\n    return;\n  }\n\n  SpawnLaserTrace(MuzzleSocket->GetComponentLocation(), AimRotation);\n  CurrentHeat = FMath::Clamp(CurrentHeat + HeatPerShot, 0.0f, MaxHeatLimit);\n  LastFireTimestamp = GetWorld()->GetTimeSeconds();\n}`, metrics: ["🥉 Top 3 Overall (MLH) / Honor", "36-Hour Hackathon / Dev Cycle", "Unreal Engine 4.21 / Engine", "Third-Person Survival / Genre"] },
-  "city-of-aethel": { role: "Lead Combat Designer & Gameplay Engineer at Aicade", systems: ["Responsive Melee Combat: 5-hit combo attack buffering, animation cancel windows, and precision parry timings.", "Dodge-Roll Invulnerability Frames: Precision i-frame calculation mitigating damage vectors within 180ms reaction windows.", "Multi-Phase Boss Fight Choreography: Telegraphed ground hazard indicators, multi-stage attack phase transitions, and posture breaks.", "2D Web Arcade Engine: 14 interactive prototypes testing rigid body ragdolls, ballistic parabolic curves, and wave tension."], snippet: `// Melee Attack Combo Buffer & i-Frame Window\nfunction handleAttackInput(player) {\n  if (player.canCancel && player.comboCount < 5) {\n    player.comboCount++;\n    player.playAnimation('attack_chain_' + player.comboCount);\n    player.grantInvulnerability(180); // 180ms i-frame\n    player.resetComboTimer(600);\n  }\n}`, metrics: ["🎖️ Top 45 IGDC Finalist / Honor", "14 Web Prototypes / Prototypes", "Phaser 3 / WebGL / Engine", "5-Hit Combos + i-Frames / Combat Feel"] },
+  "city-of-aethel": { role: "Lead Combat Designer & Gameplay Engineer at Aicade", systems: ["Responsive Melee Combat: 5-hit combo attack buffering, animation cancel windows, and precision parry timings.", "Dodge-Roll Invulnerability Frames: Precision i-frame calculation mitigating damage vectors within 180ms reaction windows.", "Multi-Phase Boss Fight Choreography: Telegraphed ground hazard indicators, multi-stage attack phase transitions, and posture breaks.", "2D Web Arcade Engine: 14 interactive prototypes testing rigid body ragdolls, ballistic parabolic curves, and wave tension."], snippet: `// Melee Attack Combo Buffer & i-Frame Window\nfunction handleAttackInput(player) {\n  if (player.canCancel && player.comboCount < 5) {\n    player.comboCount++;\n    player.playAnimation('attack_chain_' + player.comboCount);\n    player.grantInvulnerability(180); // 180ms i-frame\n    player.resetComboTimer(600);\n  }\n}`, metrics: ["🎖️ IGDC 2025 Indie Top 40 / Honor", "14 Web Prototypes / Prototypes", "Phaser 3 / WebGL / Engine", "5-Hit Combos + i-Frames / Combat Feel"] },
 };
 
 function ContributionDrawer({ project, onClose }: { project: typeof projects[number]; onClose: () => void }) {
@@ -1533,7 +1546,7 @@ function BackstorySection() {
           <div className="backstory-inline-facts">
             <span className="backstory-inline-facts__item"><strong>3</strong> Hackathon Victories</span>
             <span className="backstory-inline-facts__sep">•</span>
-            <span className="backstory-inline-facts__item"><strong>TOP 45</strong> IGDC Indie Finalist</span>
+            <span className="backstory-inline-facts__item"><strong>TOP 40</strong> IGDC 2025 Indie Finalist</span>
             <span className="backstory-inline-facts__sep">•</span>
             <span className="backstory-inline-facts__item"><strong>14+</strong> Playable Prototypes</span>
             <span className="backstory-inline-facts__sep">•</span>
@@ -1653,15 +1666,15 @@ const BACKSTORY_ACTS: BackstoryAct[] = [
     actNumber: "ACT IV",
     year: "2024 — 2025",
     title: "INTO THE ARENA: IGDC & ELYSIUM",
-    subtitle: "TOP 45 INDIE FINALIST • GAMING CLUB PRESIDENT • ESPORTS",
+    subtitle: "INDIE TOP 40 • GAMING CLUB PRESIDENT • ESPORTS",
     summary: "Validating combat feel on the national indie stage and leading collegiate gaming culture.",
     paragraphs: [
-      "Building 14 playable prototypes culminated in City of Aethel—a top-down action prototype engineered with 5-hit attack combo buffering, 180ms i-frame dodge rolls, and posture parries—earning a Top 45 Indie Game Finalist selection at the India Game Developer Conference (IGDC 2024).",
+      "Building 14 playable prototypes culminated in City of Aethel—a top-down action prototype engineered with 5-hit attack combo buffering, 180ms i-frame dodge rolls, and posture parries—earning an Indie Top 40 selection at the India Game Developer Conference (IGDC 2025).",
       "Simultaneously, as President of the Elysium Gaming Club at IARE, I stepped up to cultivate competitive collegiate gaming on campus, organizing esports tournaments and gaming events for students."
     ],
-    tags: ["IGDC 2024 Finalist", "City of Aethel", "Elysium Gaming Club", "Esports Organizer"],
+    tags: ["IGDC 2025 Indie Top 40", "City of Aethel", "Elysium Gaming Club", "Esports Organizer"],
     metrics: [
-      { label: "IGDC Honor", value: "Top 45 Indie Finalist" },
+      { label: "IGDC Honor", value: "Indie Top 40" },
       { label: "Campus Role", value: "Gaming Club President" },
     ]
   },
@@ -1995,7 +2008,7 @@ function BackstoryPage() {
             <p>Game Developer &amp; Designer pursuing B.Tech in CSE at IARE Hyderabad (2023–2027). Specializing in Unreal Engine 5.7 C++, combat feel, physics simulation, and rapid prototyping.</p>
             <div className="bio-stats" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", marginTop: "24px" }}>
               <div><strong>3</strong><span>Hackathon<br />victories</span></div>
-              <div><strong>TOP 45</strong><span>IGDC indie<br />finalist</span></div>
+              <div><strong>TOP 40</strong><span>IGDC 2025<br />indie finalist</span></div>
               <div><strong>14+</strong><span>Playable<br />prototypes</span></div>
               <div><strong>UE</strong><span>5.7 gameplay<br />systems</span></div>
             </div>
@@ -2103,11 +2116,11 @@ const workExperiences: WorkExperience[] = [
     period: "May 2024 — Nov 2024",
     location: "Remote / Studio",
     type: "Studio Internship",
-    badge: "IGDC Top 45 Finalist",
+    badge: "IGDC 2025 Indie Top 40",
     summary:
       "Engineered 14+ rapid 2D combat and gameplay prototypes in Phaser 3 / WebGL, focusing on tight player feel, animation state machines, combo buffering, and rigid-body physics.",
     responsibilities: [
-      "Programmed core combat loops including 5-hit attack combo buffering, 180ms i-frame dodge rolls, posture-breaking parries, and multi-phase boss fight state machines for City of Aethel (Top 45 Indie Finalist at IGDC 2024).",
+      "Programmed core combat loops including 5-hit attack combo buffering, 180ms i-frame dodge rolls, posture-breaking parries, and multi-phase boss fight state machines for City of Aethel (Indie Top 40 at IGDC 2025).",
       "Built and deployed 14 interactive prototypes testing Matter.js rigid-body physics, ballistic parabolic trajectory arcs, multi-joint Verlet ragdolls, and tilemap stealth AI.",
       "Iterated rapidly with game designers on combat tuning, enemy attack telegraphs, hit-stop visual feedback, screen shake, and responsive mobile touch controls.",
       "Optimized WebGL rendering pipelines, texture atlases, and audio memory footprints to maintain a locked 60 FPS across desktop and mobile browsers.",
@@ -2116,7 +2129,7 @@ const workExperiences: WorkExperience[] = [
       {
         title: "City of Aethel Combat Engine",
         description: "Lead gameplay programming for award-nominated melee action game.",
-        metric: "IGDC 2024 Top 45 Finalist",
+        metric: "IGDC 2025 Indie Top 40",
       },
       {
         title: "14 Interactive Prototypes",
@@ -2476,6 +2489,17 @@ function ExperiencePage() {
                 {activeExp.secondaryAction.label} <ArrowRight size={13} />
               </Link>
             )}
+            <a
+              href={assetUrl("Karthik_Veeranala_Resume.pdf")}
+              download="Karthik_Veeranala_Resume.pdf"
+              className="button button--outline"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
+              title="Download Karthik Veeranala's Resume (PDF)"
+            >
+              <Download size={13} /> Download Resume
+            </a>
           </div>
         </div>
       </section>
@@ -2500,8 +2524,21 @@ function Home() {
           <h1>KARTHIK<br /><span>VEERANALA</span></h1>
           <div className="hero-identity__sub"><span key={roles[roleIndex]} className="hero-role">{roles[roleIndex]}</span><em>—</em><small>Unreal Engine • C++ • Gameplay • Prototypes</small></div>
         </div>
-        <div className="hero-side-note"><span>EXPLORE</span><ArrowDownRight size={16} /></div>
-        <div className="hero-bottomline"><StatusPill>OPEN TO GAME DEVELOPER & GAMEPLAY ROLES</StatusPill><span>HYDERABAD, INDIA / UTC+05:30</span></div>
+        <div className="hero-bottomline">
+          <StatusPill>OPEN TO GAME DEVELOPER & GAMEPLAY ROLES</StatusPill>
+          <a
+            href={assetUrl("Karthik_Veeranala_Resume.pdf")}
+            download="Karthik_Veeranala_Resume.pdf"
+            className="button button--outline hero-resume-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: "inline-flex", alignItems: "center", gap: "6px", textDecoration: "none" }}
+            title="Download Karthik Veeranala's Resume (PDF)"
+          >
+            <Download size={13} /> Download Resume
+          </a>
+          <span>HYDERABAD, INDIA / UTC+05:30</span>
+        </div>
       </section>
 
       <BackstorySection />
@@ -2580,7 +2617,7 @@ const aicadeGames: AicadeGame[] = [
     path: "city_of_aethel/index.html",
     thumbnail: assetUrl("portfolio_media/screenshots/phaser_games/01_city_of_aethel.png"),
     aspect: "16:9 Landscape",
-    badge: "IGDC 2024 Top 45 Finalist",
+    badge: "IGDC 2025 Indie Top 40",
     tagline: "Fast-Paced Melee Combat with Attack Chains & Dodge Rolls",
     description: "Award-nominated top-down action game featuring 5-hit attack combo buffering, 180ms i-frame dodge rolls, posture-breaking parries, and multi-phase arena encounters.",
     controls: "WASD: Move / Sprint (Shift) | Mouse Click / F: 5-Hit Combo | V: Heavy Strike | X / R-Click: Special Slash | C: Dash | Ctrl: Dodge Roll | E: Block / Interact | Space: Jump",
@@ -3489,7 +3526,7 @@ function DemoReelPage() {
     { title: "Cyrus 365 E2E Automation Suite (UE 5.7 C++)", time: "00:30", seconds: 30 },
     { title: "ByteOasis: Code to Escape (2nd Place HackRush)", time: "00:57", seconds: 57 },
     { title: "Geek'O'Wars (Top 3 MLH FrostHacks)", time: "01:23", seconds: 83 },
-    { title: "City of Aethel & Playable Arcade (Top 45 IGDC Finalist)", time: "01:49", seconds: 109 },
+    { title: "City of Aethel & Playable Arcade (IGDC 2025 Indie Top 40)", time: "01:49", seconds: 109 },
   ];
 
   return (
@@ -3833,14 +3870,27 @@ function BioPage() {
         <div className="bio-copy">
           <Eyebrow>About the player</Eyebrow>
           <p className="bio-copy__lead">I am a game developer and designer currently pursuing a B.Tech in Computer Science and Engineering at IARE Hyderabad (2023–2027), with a deep focus on Unreal Engine C++, real-time combat feel, gameplay mechanics, and player experience.</p>
-          <p>My journey started on my dad's PC playing downloaded classics, building logic prototypes in Scratch, and self-learning C++ game architecture. I honed my skills under high-pressure constraints in 24–48 hour competitive hackathons—winning 1st Place at CodeDay 2.0, 2nd Place at HackRush, and Top 3 at MLH FrostHacks—alongside earning a Top 45 Indie Finalist selection at IGDC 2024 for City of Aethel. As President of the Elysium Gaming Club at IARE, I organize campus gaming culture and collegiate esports tournaments.</p>
+          <p>My journey started on my dad's PC playing downloaded classics, building logic prototypes in Scratch, and self-learning C++ game architecture. I honed my skills under high-pressure constraints in 24–48 hour competitive hackathons—winning 1st Place at CodeDay 2.0, 2nd Place at HackRush, and Top 3 at MLH FrostHacks—alongside earning an Indie Top 40 selection at IGDC 2025 for City of Aethel. As President of the Elysium Gaming Club at IARE, I organize campus gaming culture and collegiate esports tournaments.</p>
           <div className="bio-stats">
             <div><strong>3</strong><span>hackathon<br />victories</span></div>
-            <div><strong>TOP 45</strong><span>IGDC indie<br />finalist</span></div>
+            <div><strong>TOP 40</strong><span>IGDC 2025<br />indie finalist</span></div>
             <div><strong>14+</strong><span>playable<br />prototypes</span></div>
             <div><strong>UE</strong><span>5.7 gameplay<br />core</span></div>
           </div>
-          <StatusPill>OPEN TO GAME DEVELOPER & GAMEPLAY ROLES</StatusPill>
+          <div style={{ marginTop: "20px", display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
+            <StatusPill>OPEN TO GAME DEVELOPER & GAMEPLAY ROLES</StatusPill>
+            <a
+              href={assetUrl("Karthik_Veeranala_Resume.pdf")}
+              download="Karthik_Veeranala_Resume.pdf"
+              className="button button--primary"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
+              title="Download Karthik Veeranala's Resume (PDF)"
+            >
+              <Download size={14} /> Download Resume (PDF)
+            </a>
+          </div>
         </div>
         <form className="contact-form" onSubmit={(event) => { event.preventDefault(); setSent(true); }}>
           <Eyebrow>Send a signal</Eyebrow>
@@ -4432,7 +4482,20 @@ function Footer() {
   return (
     <footer className="site-footer page-pad">
       <div className="site-footer__mark"><BrandMark /><span>KV / KARTHIK VEERANALA</span></div>
-      <div className="site-footer__middle"><Eyebrow>Keep in touch</Eyebrow><a href="mailto:veeranalakarthik@gmail.com">veeranalakarthik@gmail.com</a></div>
+      <div className="site-footer__middle">
+        <Eyebrow>Keep in touch</Eyebrow>
+        <a href="mailto:veeranalakarthik@gmail.com">veeranalakarthik@gmail.com</a>
+        <a
+          href={assetUrl("Karthik_Veeranala_Resume.pdf")}
+          download="Karthik_Veeranala_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "inline-flex", alignItems: "center", gap: "6px", marginTop: "8px", color: "var(--teal)", fontSize: "10px", fontFamily: "var(--mono)", textDecoration: "none" }}
+          title="Download Karthik Veeranala's Resume (PDF)"
+        >
+          <Download size={12} /> Download Resume (PDF)
+        </a>
+      </div>
       <div className="site-footer__controls">
         <span>ARCADE CONTROLS</span>
         <button className="footer-control" onClick={() => { footerControls?.toggleCabinet(); setCabinetOn((value) => !value); }} aria-label={cabinetOn ? "Exit CRT cabinet mode" : "Enter CRT cabinet mode"}><Monitor size={13} /> {cabinetOn ? "CRT ON" : "CRT"}</button>
