@@ -26,28 +26,26 @@ export default function App() {
 
         {/* Single-Page Scroll Content */}
         <main>
-          {/* Section 00: Hero Landing */}
+          {/* 1. Home / Hero Landing */}
           <Hero onOpenDemoReel={() => setIsDemoReelOpen(true)} />
 
-          {/* Section 01: Featured Projects */}
+          {/* 2. Projects */}
           <FeaturedProjects onOpenPhaserGame={() => setIsPhaserGameOpen(true)} />
 
-          {/* Section 02: Technical Skills */}
-          <Skills />
-
-          {/* Section 02.5: Certifications */}
-          <Certifications />
-
-          {/* Section 03: Professional Experience */}
+          {/* 3. Career / Experience */}
           <Experience />
 
-          {/* Section 04: Achievements & Honors */}
+          {/* 4. Technical Skills */}
+          <Skills />
+
+          {/* 5. Certifications & Honors */}
+          <Certifications />
           <Achievements />
 
-          {/* Section 05: About Me */}
+          {/* 6. About Me */}
           <About />
 
-          {/* Section 06: Contact & Transmission */}
+          {/* 7. Contact */}
           <Contact />
         </main>
 
