@@ -26,22 +26,22 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-24 sm:py-32 section-with-bg bg-[#080808] border-b-[15px] border-[#ff4d00]"
+      className="relative py-24 sm:py-32 section-with-bg bg-[#080808] border-b-[15px] border-[#9e0b0b]"
       style={{
         backgroundImage: `url(${assetUrl("assets/backgrounds/bg_contact_interlude_slalom.webp")})`,
       }}
     >
-      {/* Dark Carbon Overlay */}
+      {/* Pure Neutral Dark Carbon Overlay */}
       <div className="section-overlay-navy pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         
         {/* Section Header */}
         <div className="mb-14 text-center md:text-left">
-          <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-black uppercase text-[#f4f4f5] tracking-tight mb-4">
+          <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-black uppercase text-white tracking-tight mb-4">
             GET IN TOUCH
           </h2>
-          <div className="w-44 h-3 bg-[#ff4d00] mb-6 mx-auto md:mx-0" />
+          <div className="w-44 h-3 bg-[#9e0b0b] mb-6 mx-auto md:mx-0" />
 
           <p className="text-base sm:text-xl text-[#a1a1aa] max-w-2xl leading-relaxed font-normal">
             Currently open for Game Programmer and Gameplay Development Intern opportunities for 2026.
@@ -53,13 +53,13 @@ export default function Contact() {
           <div className="md:col-span-5 space-y-6">
             
             {/* Primary Email Card */}
-            <div className="p-6 sm:p-8 bg-[#101012] border-2 border-[#ff4d00] rounded-lg shadow-xl space-y-4">
-              <span className="font-display text-xs text-[#ff7700] uppercase font-black tracking-wider block">
+            <div className="p-6 sm:p-8 bg-[#101012] border-2 border-[#27272a] hover:border-[#9e0b0b] transition-colors rounded-lg shadow-xl space-y-4">
+              <span className="font-display text-xs text-[#d4d4d8] uppercase font-black tracking-wider block">
                 DIRECT INBOX
               </span>
               <a
                 href="mailto:veeranalakarthik@gmail.com"
-                className="font-display text-lg sm:text-xl font-black text-[#f4f4f5] hover:text-[#ff4d00] transition-colors break-all block"
+                className="font-display text-lg sm:text-xl font-black text-white hover:text-[#d4d4d8] transition-colors break-all block"
               >
                 veeranalakarthik@gmail.com
               </a>
@@ -67,7 +67,7 @@ export default function Contact() {
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <button
                   onClick={copyEmail}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 font-display text-xs uppercase font-black text-white bg-[#ff4d00] hover:bg-[#ff661a] rounded shadow transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 font-display text-xs uppercase font-black text-white bg-[#9e0b0b] hover:bg-[#bf1515] rounded shadow transition-all cursor-pointer"
                 >
                   {copied ? <Check size={14} /> : <Copy size={14} />}
                   <span>{copied ? "COPIED" : "COPY EMAIL"}</span>
@@ -75,7 +75,7 @@ export default function Contact() {
 
                 <a
                   href="mailto:veeranalakarthik@gmail.com"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 font-display text-xs uppercase font-black text-[#f4f4f5] border border-[#27272a] bg-[#1a1a1e] hover:bg-[#ff7700] hover:text-[#080808] rounded transition-all"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 font-display text-xs uppercase font-black text-white border border-[#27272a] bg-[#1a1a1e] hover:bg-[#9e0b0b] hover:border-[#9e0b0b] rounded transition-all"
                 >
                   <Mail size={14} />
                   <span>OPEN CLIENT</span>
@@ -94,10 +94,10 @@ export default function Contact() {
                   href="https://linkedin.com/in/karthikveeranala"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 bg-[#080808] hover:bg-[#1a1a1e] border border-[#27272a] rounded text-sm text-[#f4f4f5] transition-all"
+                  className="flex items-center justify-between p-3 bg-[#080808] hover:bg-[#1a1a1e] border border-[#27272a] rounded text-sm text-white transition-all"
                 >
                   <span className="flex items-center gap-2 font-bold">
-                    <Linkedin size={16} className="text-[#ff4d00]" /> LinkedIn Profile
+                    <Linkedin size={16} className="text-[#d4d4d8]" /> LinkedIn Profile
                   </span>
                   <ExternalLink size={14} className="text-[#a1a1aa]" />
                 </a>
@@ -106,10 +106,10 @@ export default function Contact() {
                   href="https://github.com/KarthikVeeranala"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 bg-[#080808] hover:bg-[#1a1a1e] border border-[#27272a] rounded text-sm text-[#f4f4f5] transition-all"
+                  className="flex items-center justify-between p-3 bg-[#080808] hover:bg-[#1a1a1e] border border-[#27272a] rounded text-sm text-white transition-all"
                 >
                   <span className="flex items-center gap-2 font-bold">
-                    <Github size={16} className="text-[#ff4d00]" /> GitHub Repositories
+                    <Github size={16} className="text-[#d4d4d8]" /> GitHub Repositories
                   </span>
                   <ExternalLink size={14} className="text-[#a1a1aa]" />
                 </a>
@@ -119,10 +119,10 @@ export default function Contact() {
                   download="Karthik_Veeranala_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 bg-[#080808] hover:bg-[#1a1a1e] border border-[#27272a] rounded text-sm text-[#f4f4f5] transition-all"
+                  className="flex items-center justify-between p-3 bg-[#080808] hover:bg-[#1a1a1e] border border-[#27272a] rounded text-sm text-white transition-all"
                 >
                   <span className="flex items-center gap-2 font-bold">
-                    <Download size={16} className="text-[#ff7700]" /> Resume (PDF)
+                    <Download size={16} className="text-[#d4d4d8]" /> Resume (PDF)
                   </span>
                   <ExternalLink size={14} className="text-[#a1a1aa]" />
                 </a>
@@ -136,7 +136,7 @@ export default function Contact() {
               onSubmit={handleSendMail}
               className="p-6 sm:p-8 bg-[#101012] border-2 border-[#27272a] rounded-lg shadow-xl space-y-4"
             >
-              <h3 className="font-display text-lg uppercase font-black text-[#f4f4f5]">
+              <h3 className="font-display text-lg uppercase font-black text-white">
                 SEND A MESSAGE
               </h3>
 
@@ -150,7 +150,7 @@ export default function Contact() {
                   value={senderEmail}
                   onChange={(e) => setSenderEmail(e.target.value)}
                   placeholder="recruiter@studio.com"
-                  className="w-full px-4 py-2.5 bg-[#080808] border border-[#27272a] focus:border-[#ff4d00] rounded text-sm text-[#f4f4f5] focus:outline-none"
+                  className="w-full px-4 py-2.5 bg-[#080808] border border-[#27272a] focus:border-[#9e0b0b] rounded text-sm text-white focus:outline-none"
                 />
               </div>
 
@@ -164,7 +164,7 @@ export default function Contact() {
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
                   placeholder="Game Programmer Opportunity / Cyrus 365 Follow-up"
-                  className="w-full px-4 py-2.5 bg-[#080808] border border-[#27272a] focus:border-[#ff4d00] rounded text-sm text-[#f4f4f5] focus:outline-none"
+                  className="w-full px-4 py-2.5 bg-[#080808] border border-[#27272a] focus:border-[#9e0b0b] rounded text-sm text-white focus:outline-none"
                 />
               </div>
 
@@ -178,13 +178,13 @@ export default function Contact() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Hi Karthik, we reviewed your Unreal Engine projects and would like to talk about..."
-                  className="w-full px-4 py-2.5 bg-[#080808] border border-[#27272a] focus:border-[#ff4d00] rounded text-sm text-[#f4f4f5] focus:outline-none resize-none"
+                  className="w-full px-4 py-2.5 bg-[#080808] border border-[#27272a] focus:border-[#9e0b0b] rounded text-sm text-white focus:outline-none resize-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3.5 bg-[#ff4d00] hover:bg-[#ff661a] text-white font-display text-sm uppercase font-black rounded shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3.5 bg-[#9e0b0b] hover:bg-[#bf1515] text-white font-display text-sm uppercase font-black rounded shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Send size={15} />
                 <span>DISPATCH MESSAGE (MAILTO)</span>

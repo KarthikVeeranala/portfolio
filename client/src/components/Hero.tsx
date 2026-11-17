@@ -58,16 +58,20 @@ export default function Hero({ onOpenDemoReel }: HeroProps) {
         <source src={assetUrl("assets/backgrounds/bg_hero_interlude_loop.mp4")} type="video/mp4" />
       </video>
 
-      {/* Dark Carbon Background Layer + Subtle Warm Tangerine Depth Overlay */}
+      {/* Pure Neutral Dark Carbon Overlay (Zero Red/Orange Wash on Video) */}
       <div className="absolute inset-0 bg-[#080808]/62 pointer-events-none" />
-      <div className="absolute inset-0 bg-[#ff4d00]/12 mix-blend-screen pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/60 via-[#080808]/25 to-[#080808]/92 pointer-events-none" />
 
       {/* Main Content Container */}
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 flex flex-col items-center">
         
-        {/* Center Box: Safety Tangerine Fill with 16px Solid Carbon Border */}
-        <div className="w-full max-w-4xl bg-[#ff4d00] border-[16px] border-[#101012] rounded-lg shadow-2xl p-6 sm:p-10 md:p-14 text-left transition-transform hover:scale-[1.005]">
+        {/* Center Box: Exact Velvet Crimson Radial Gradient with 16px Solid Carbon Border */}
+        <div
+          className="w-full max-w-4xl border-[16px] border-[#101012] rounded-lg shadow-2xl p-6 sm:p-10 md:p-14 text-left transition-transform hover:scale-[1.005]"
+          style={{
+            background: "radial-gradient(circle at 50% 48%, #7d0302 0%, #4a0001 65%, #1e0000 100%)",
+          }}
+        >
           
           {/* Main Title: HI, I'M KARTHIK! */}
           <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-black text-white uppercase tracking-tight leading-[1.05] mb-5">
@@ -95,7 +99,7 @@ export default function Hero({ onOpenDemoReel }: HeroProps) {
               onClick={onOpenDemoReel}
               className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#101012] hover:bg-[#1a1a1e] text-white font-display text-xs sm:text-sm uppercase font-black tracking-wide rounded-md transition-all shadow-md hover:-translate-y-0.5 cursor-pointer"
             >
-              <Play size={16} className="fill-current text-[#ff4d00]" />
+              <Play size={16} className="fill-current text-[#bf1515]" />
               <span>WATCH DEMO REEL (02:13)</span>
             </button>
 
@@ -124,7 +128,7 @@ export default function Hero({ onOpenDemoReel }: HeroProps) {
                 href={soc.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 sm:w-13 sm:h-13 flex items-center justify-center bg-white text-[#080808] hover:bg-[#ff4d00] hover:text-white rounded-xl shadow-xl transition-all hover:-translate-y-1"
+                className="w-11 h-11 sm:w-13 sm:h-13 flex items-center justify-center bg-white text-[#080808] hover:bg-[#9e0b0b] hover:text-white rounded-xl shadow-xl transition-all hover:-translate-y-1"
                 aria-label={soc.name}
                 title={soc.name}
               >
@@ -135,12 +139,12 @@ export default function Hero({ onOpenDemoReel }: HeroProps) {
         </div>
       </div>
 
-      {/* Diagonal / Angled Bottom Divider Stroke (#ff4d00) */}
+      {/* Diagonal / Angled Bottom Divider Stroke (#9e0b0b) */}
       <div className="absolute bottom-0 left-0 right-0 h-10 pointer-events-none overflow-hidden">
         <svg
           viewBox="0 0 1200 40"
           preserveAspectRatio="none"
-          className="w-full h-full text-[#ff4d00] fill-current"
+          className="w-full h-full text-[#9e0b0b] fill-current"
         >
           <polygon points="0,40 1200,40 1200,0 0,28" />
         </svg>

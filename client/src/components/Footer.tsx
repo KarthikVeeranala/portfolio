@@ -7,17 +7,17 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Left: Brand Monogram */}
         <div>
-          <span className="font-display font-black text-lg uppercase text-[#ff4d00] block mb-1">
+          <span className="font-display font-black text-lg uppercase text-white block mb-1">
             KARTHIK V
           </span>
           <span className="text-[#a1a1aa]">Hyderabad, India • Game Programmer &amp; Gameplay Developer</span>
         </div>
 
         {/* Center: Links */}
-        <div className="flex items-center gap-4 text-xs font-bold text-[#f4f4f5]">
+        <div className="flex items-center gap-4 text-xs font-bold text-[#d4d4d8]">
           <a
             href="mailto:veeranalakarthik@gmail.com"
-            className="hover:text-[#ff4d00] transition-colors inline-flex items-center gap-1"
+            className="hover:text-white transition-colors inline-flex items-center gap-1"
           >
             <Mail size={13} />
             <span>veeranalakarthik@gmail.com</span>
@@ -28,7 +28,7 @@ export default function Footer() {
             download="Karthik_Veeranala_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#ff4d00] transition-colors inline-flex items-center gap-1"
+            className="hover:text-white transition-colors inline-flex items-center gap-1"
           >
             <Download size={13} />
             <span>Resume (PDF)</span>
@@ -38,7 +38,7 @@ export default function Footer() {
             href="https://github.com/KarthikVeeranala"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#ff4d00] transition-colors"
+            className="hover:text-white transition-colors"
           >
             GitHub
           </a>
@@ -47,7 +47,7 @@ export default function Footer() {
             href="https://linkedin.com/in/karthikveeranala"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#ff4d00] transition-colors"
+            className="hover:text-white transition-colors"
           >
             LinkedIn
           </a>

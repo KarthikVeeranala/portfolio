@@ -3,37 +3,37 @@
 @import "tw-animate-css";
 
 :root {
-  /* Concept 5: Stark Brutalist & Safety Tangerine */
+  /* Pure Carbon + Velvet Crimson Accents Only */
   --trent-navy: #101012;
   --trent-navy-dark: #080808;
   --trent-card-surface: #141416;
   --trent-card-sub: #1a1a1e;
-  --trent-orange: #ff4d00;
-  --trent-amber: #ff7700;
-  --trent-white: #f4f4f5;
+  --trent-orange: #9e0b0b;
+  --trent-amber: #bf1515;
+  --trent-white: #ffffff;
   --trent-slate: #a1a1aa;
   --trent-muted: #71717a;
   --trent-border: rgba(255, 255, 255, 0.12);
-  --trent-border-orange: #ff4d00;
+  --trent-border-orange: #9e0b0b;
 
   /* Typography */
   --font-display: 'Archivo Black', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Archivo', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 
-  /* Legacy aliases mapped to Concept 5 tokens */
+  /* Legacy aliases mapped to Pure Carbon + Velvet Crimson tokens */
   --bg: #080808;
   --bg-elevated: #101012;
   --bg-soft: #141416;
   --line: rgba(255, 255, 255, 0.12);
-  --line-strong: #ff4d00;
-  --ink: #f4f4f5;
+  --line-strong: #9e0b0b;
+  --ink: #ffffff;
   --muted: #a1a1aa;
   --muted-2: #71717a;
-  --teal: #ff4d00;
-  --teal-dim: #cc3e00;
-  --bone: #f4f4f5;
-  --rust: #ff7700;
+  --teal: #9e0b0b;
+  --teal-dim: #7d0302;
+  --bone: #ffffff;
+  --rust: #bf1515;
 }
 
 * {
@@ -69,21 +69,21 @@ h1, h2, h3, h4, .font-display {
   background: #141416;
 }
 ::-webkit-scrollbar-thumb {
-  background: #ff4d00;
+  background: #9e0b0b;
   border-radius: 0px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff661a;
+  background: #bf1515;
 }
 
 /* Selection & Focus */
 ::selection {
-  color: #080808;
-  background-color: #ff4d00;
+  color: #ffffff;
+  background-color: #9e0b0b;
 }
 
 :focus-visible {
-  outline: 3px solid #ff4d00;
+  outline: 3px solid #9e0b0b;
   outline-offset: 2px;
 }
 
@@ -105,7 +105,7 @@ button {
   transition: color 0.15s ease-in-out;
 }
 .trent-link:hover {
-  color: #ff4d00;
+  color: #ffffff;
 }
 
 /* Section Backgrounds with Overlay */
@@ -124,6 +124,6 @@ button {
 .section-overlay-hero {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 77, 0, 0.52) 0%, rgba(8, 8, 8, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(8, 8, 8, 0.55) 0%, rgba(8, 8, 8, 0.88) 100%);
   pointer-events: none;
 }

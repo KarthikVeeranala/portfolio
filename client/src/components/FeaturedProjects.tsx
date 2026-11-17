@@ -22,16 +22,16 @@ export default function FeaturedProjects({ onOpenPhaserGame }: FeaturedProjectsP
   return (
     <section
       id="projects"
-      className="relative py-24 sm:py-32 bg-[#080808] border-b-[15px] border-[#ff4d00]"
+      className="relative py-24 sm:py-32 bg-[#080808] border-b-[15px] border-[#9e0b0b]"
     >
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         
         {/* Section Header */}
         <div className="mb-14">
-          <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-black uppercase text-[#f4f4f5] tracking-tight mb-4">
+          <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-black uppercase text-white tracking-tight mb-4">
             PROJECTS
           </h2>
-          <div className="w-44 h-3 bg-[#ff4d00] mb-6" />
+          <div className="w-44 h-3 bg-[#9e0b0b] mb-6" />
 
           <p className="text-base sm:text-xl text-[#a1a1aa] max-w-3xl leading-relaxed font-normal">
             Production gameplay systems, automation tooling, and mechanics developed for Unreal Engine 5.7 and WebGL. Click any project to inspect its C++ code, architecture, and video evidence.
@@ -40,15 +40,15 @@ export default function FeaturedProjects({ onOpenPhaserGame }: FeaturedProjectsP
           {/* Factual Highlights Bar (Corrected per user instructions) */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[#27272a]">
             <div className="p-4 bg-[#101012] border border-[#27272a] rounded-md shadow-md">
-              <span className="block font-display text-2xl font-black text-[#ff4d00]">2+ YEARS</span>
+              <span className="block font-display text-2xl font-black text-white">2+ YEARS</span>
               <span className="text-xs text-[#a1a1aa] font-semibold uppercase tracking-wider">Unreal Engine &amp; C++</span>
             </div>
             <div className="p-4 bg-[#101012] border border-[#27272a] rounded-md shadow-md">
-              <span className="block font-display text-2xl font-black text-[#f4f4f5]">4 PROJECTS</span>
+              <span className="block font-display text-2xl font-black text-white">4 PROJECTS</span>
               <span className="text-xs text-[#a1a1aa] font-semibold uppercase tracking-wider">Shipped &amp; Playable</span>
             </div>
             <div className="p-4 bg-[#101012] border border-[#27272a] rounded-md shadow-md">
-              <span className="block font-display text-2xl font-black text-[#ff7700]">AUTOMATION PLUGIN</span>
+              <span className="block font-display text-2xl font-black text-white">AUTOMATION PLUGIN</span>
               <span className="text-xs text-[#a1a1aa] font-semibold uppercase tracking-wider">Headless E2E Test Suite for UE5</span>
             </div>
           </div>
@@ -68,7 +68,7 @@ export default function FeaturedProjects({ onOpenPhaserGame }: FeaturedProjectsP
                 onClick={() => setActiveFilter(tab.id)}
                 className={`px-4 py-2 text-xs font-bold uppercase rounded-md transition-all cursor-pointer ${
                   activeFilter === tab.id
-                    ? "bg-[#ff4d00] text-white shadow-md font-black"
+                    ? "bg-[#9e0b0b] text-white shadow-md font-black"
                     : "bg-[#101012] text-[#a1a1aa] hover:text-white hover:bg-[#1a1a1e] border border-[#27272a]"
                 }`}
               >
@@ -83,7 +83,7 @@ export default function FeaturedProjects({ onOpenPhaserGame }: FeaturedProjectsP
           {filteredProjects.map((project) => (
             <article
               key={project.slug}
-              className="group relative flex flex-col bg-[#101012] border-2 border-[#27272a] hover:border-[#ff4d00] rounded-lg overflow-hidden transition-all duration-300 shadow-xl hover:-translate-y-1"
+              className="group relative flex flex-col bg-[#101012] border-2 border-[#27272a] hover:border-[#9e0b0b] rounded-lg overflow-hidden transition-all duration-300 shadow-xl hover:-translate-y-1"
             >
               {/* 16:9 Thumbnail Header */}
               <div
@@ -101,11 +101,11 @@ export default function FeaturedProjects({ onOpenPhaserGame }: FeaturedProjectsP
 
                 {/* Engine Badge */}
                 <div className="absolute top-3 left-3 flex flex-wrap items-center gap-2">
-                  <span className="px-3 py-1 font-display text-xs uppercase font-black tracking-wider text-white bg-[#ff4d00] rounded shadow-md">
+                  <span className="px-3 py-1 font-display text-xs uppercase font-black tracking-wider text-white bg-[#9e0b0b] rounded shadow-md">
                     {project.engine}
                   </span>
                   {project.award && (
-                    <span className="px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-[#f4f4f5] bg-[#080808]/90 border border-[#ff7700]/40 rounded backdrop-blur-sm">
+                    <span className="px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-white bg-[#080808]/90 border border-[#27272a] rounded backdrop-blur-sm">
                       {project.award}
                     </span>
                   )}
@@ -113,7 +113,7 @@ export default function FeaturedProjects({ onOpenPhaserGame }: FeaturedProjectsP
 
                 {/* Inspect Overlay Prompt */}
                 <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 font-display text-xs font-black uppercase text-white bg-[#ff4d00] rounded shadow-lg">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 font-display text-xs font-black uppercase text-white bg-[#9e0b0b] rounded shadow-lg">
                     <span>INSPECT C++ BREAKDOWN</span>
                     <ArrowUpRight size={14} />
                   </span>
@@ -123,12 +123,12 @@ export default function FeaturedProjects({ onOpenPhaserGame }: FeaturedProjectsP
               {/* Card Body */}
               <div className="flex-1 p-6 sm:p-7 flex flex-col justify-between">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#ff7700] block mb-1">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#d4d4d8] block mb-1">
                     {project.role}
                   </span>
                   <h3
                     onClick={() => setSelectedProject(project)}
-                    className="font-display text-xl sm:text-2xl font-black uppercase text-[#f4f4f5] group-hover:text-[#ff4d00] transition-colors cursor-pointer mb-3"
+                    className="font-display text-xl sm:text-2xl font-black uppercase text-white group-hover:text-[#e4e4e7] transition-colors cursor-pointer mb-3"
                   >
                     {project.title}
                   </h3>
@@ -153,7 +153,7 @@ export default function FeaturedProjects({ onOpenPhaserGame }: FeaturedProjectsP
                 <div className="pt-4 border-t border-[#27272a] flex flex-wrap items-center justify-between gap-3">
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 font-display text-xs uppercase font-black text-white bg-[#ff4d00] hover:bg-[#ff661a] rounded transition-all shadow-sm cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 font-display text-xs uppercase font-black text-white bg-[#9e0b0b] hover:bg-[#bf1515] rounded transition-all shadow-sm cursor-pointer"
                   >
                     <span>INSPECT DETAILS</span>
                     <ArrowUpRight size={14} />
@@ -162,7 +162,7 @@ export default function FeaturedProjects({ onOpenPhaserGame }: FeaturedProjectsP
                   {project.slug === "city-of-aethel" && (
                     <button
                       onClick={onOpenPhaserGame}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold uppercase text-[#f4f4f5] border border-[#ff7700] bg-[#1a1a1e] hover:bg-[#ff7700] hover:text-[#080808] rounded transition-all cursor-pointer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold uppercase text-white border border-[#9e0b0b] bg-[#1a1a1e] hover:bg-[#9e0b0b] rounded transition-all cursor-pointer"
                     >
                       <Gamepad2 size={14} />
                       <span>PLAY WEBGL BUILD</span>

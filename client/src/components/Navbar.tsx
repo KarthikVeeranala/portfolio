@@ -89,16 +89,16 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#101012] border-b-[12px] border-[#ff4d00] shadow-xl">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#101012] border-b-[12px] border-[#9e0b0b] shadow-xl">
       <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* Left: Brand Monogram / Title (Simplified to KARTHIK V) */}
+        {/* Left: Brand Monogram / Title (Stark White matching banner) */}
         <button
           onClick={() => scrollToSection("hero")}
           className="text-left focus:outline-none transition-transform hover:scale-[1.02] flex items-center gap-2"
           aria-label="Karthik V Home"
         >
-          <span className="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-[#ff4d00]">
+          <span className="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-white">
             KARTHIK V
           </span>
         </button>
@@ -112,19 +112,19 @@ export default function Navbar() {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`text-sm font-bold tracking-normal transition-colors lowercase cursor-pointer relative py-1 ${
-                  isActive ? "text-[#ff4d00]" : "text-[#f4f4f5] hover:text-[#ff4d00]"
+                  isActive ? "text-white" : "text-[#a1a1aa] hover:text-white"
                 }`}
               >
                 {item.label}
                 {isActive && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-[#ff4d00]" />
+                  <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-[#9e0b0b]" />
                 )}
               </button>
             );
           })}
         </nav>
 
-        {/* Right: Social Icon Buttons (Safety Tangerine rounded squares) */}
+        {/* Right: Social Icon Buttons (Velvet Crimson rounded squares) */}
         <div className="hidden sm:flex items-center gap-2">
           {SOCIAL_LINKS.map((soc) => {
             const Icon = soc.icon;
@@ -134,7 +134,7 @@ export default function Navbar() {
                 href={soc.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center bg-[#ff4d00] hover:bg-[#ff661a] text-[#f4f4f5] rounded-md transition-all shadow-sm hover:-translate-y-0.5"
+                className="w-9 h-9 flex items-center justify-center bg-[#9e0b0b] hover:bg-[#bf1515] text-white rounded-md transition-all shadow-sm hover:-translate-y-0.5"
                 title={soc.name}
                 aria-label={soc.name}
               >
@@ -148,7 +148,7 @@ export default function Navbar() {
         <div className="flex lg:hidden items-center gap-2">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#f4f4f5] hover:text-[#ff4d00] bg-[#1a1a1e] rounded-md transition-colors"
+            className="p-2 text-white hover:bg-[#27272a] bg-[#1a1a1e] rounded-md transition-colors"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -166,8 +166,8 @@ export default function Navbar() {
                 onClick={() => scrollToSection(item.id)}
                 className={`text-left px-3 py-2 rounded font-bold text-sm lowercase transition-colors ${
                   activeSection === item.id
-                    ? "bg-[#ff4d00] text-[#f4f4f5]"
-                    : "text-[#a1a1aa] hover:text-[#f4f4f5] hover:bg-[#1a1a1e]"
+                    ? "bg-[#9e0b0b] text-white"
+                    : "text-[#a1a1aa] hover:text-white hover:bg-[#1a1a1e]"
                 }`}
               >
                 {item.label}
@@ -185,7 +185,7 @@ export default function Navbar() {
                   href={soc.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center bg-[#ff4d00] text-[#f4f4f5] rounded-md"
+                  className="w-10 h-10 flex items-center justify-center bg-[#9e0b0b] text-white rounded-md"
                   aria-label={soc.name}
                 >
                   <Icon size={19} />

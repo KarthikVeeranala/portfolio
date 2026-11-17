@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <ErrorBoundary>
-      <div className="min-h-screen bg-[#080808] text-[#f4f4f5] font-body selection:bg-[#ff4d00] selection:text-[#080808] relative overflow-x-hidden">
+      <div className="min-h-screen bg-[#080808] text-[#ffffff] font-body selection:bg-[#9e0b0b] selection:text-white relative overflow-x-hidden">
         {/* Navigation */}
         <Navbar />
 
