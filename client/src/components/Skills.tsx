@@ -1,4 +1,4 @@
-import { Code2, Gamepad2, Terminal, Zap } from "lucide-react";
+import { Code2, Compass, Gamepad2, Terminal, Zap } from "lucide-react";
 import { SKILL_CATEGORIES, assetUrl } from "../data/portfolioData";
 
 export default function Skills() {
@@ -12,6 +12,8 @@ export default function Skills() {
         return <Zap size={20} className="text-white" />;
       case "Terminal":
         return <Terminal size={20} className="text-white" />;
+      case "Compass":
+        return <Compass size={20} className="text-white" />;
       default:
         return <Code2 size={20} className="text-white" />;
     }
@@ -38,16 +40,18 @@ export default function Skills() {
           <div className="w-44 h-3 bg-[#9e0b0b] mb-6" />
 
           <p className="text-base sm:text-xl text-[#a1a1aa] max-w-3xl leading-relaxed font-normal">
-            Directly demonstrable competencies backed by commercial internships at Cyrus 365 and Aicade, hackathon victories, and playable Unreal Engine C++ prototypes. Zero arbitrary percentages.
+            Directly demonstrable competencies backed by commercial internships at Cyrus 365 and Aicade, hackathon victories, playable prototypes, and game design workflows. Zero arbitrary percentages.
           </p>
         </div>
 
-        {/* 4 Skill Category Cards Grid */}
+        {/* Skill Category Cards Grid (4 Core + 1 Full-Width Game & Technical Design Card) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {SKILL_CATEGORIES.map((category) => (
             <div
               key={category.title}
-              className="p-6 sm:p-8 bg-[#101012] border-2 border-[#27272a] hover:border-[#9e0b0b] rounded-lg transition-all shadow-xl flex flex-col justify-between"
+              className={`p-6 sm:p-8 bg-[#101012] border-2 border-[#27272a] hover:border-[#9e0b0b] rounded-lg transition-all shadow-xl flex flex-col justify-between ${
+                category.fullWidth ? "md:col-span-2" : ""
+              }`}
             >
               <div>
                 {/* Category Header */}
@@ -64,13 +68,13 @@ export default function Skills() {
                 </div>
 
                 {/* Skills Tag List */}
-                <div className="space-y-3">
+                <div className={category.fullWidth ? "grid grid-cols-1 md:grid-cols-2 gap-3" : "space-y-3"}>
                   {category.skills.map((skill) => (
                     <div
                       key={skill.name}
                       className="p-3 bg-[#080808] border border-[#27272a] hover:border-[#9e0b0b]/70 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 transition-colors"
                     >
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 shrink-0">
                         {skill.highlight && (
                           <span className="w-2 h-2 rounded-full bg-[#9e0b0b]" />
                         )}
@@ -95,7 +99,7 @@ export default function Skills() {
               {/* Verified Evidence Footer */}
               <div className="mt-6 pt-4 border-t border-[#27272a] flex items-center justify-between text-xs font-bold text-[#a1a1aa]">
                 <span className="uppercase tracking-wider">VERIFIED IN PRODUCTION:</span>
-                <span className="text-white">C++ CODE &amp; REPOSITORIES</span>
+                <span className="text-white">{category.verifiedLabel || "C++ CODE & REPOSITORIES"}</span>
               </div>
             </div>
           ))}

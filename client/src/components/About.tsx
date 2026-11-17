@@ -1,4 +1,4 @@
-import { Cpu, GraduationCap, Terminal, Code2 } from "lucide-react";
+import { Compass, Cpu, GraduationCap, Terminal } from "lucide-react";
 
 export default function About() {
   return (
@@ -13,7 +13,7 @@ export default function About() {
           <div className="w-44 h-3 bg-[#9e0b0b] mb-6" />
 
           <p className="text-base sm:text-xl text-[#a1a1aa] max-w-3xl leading-relaxed font-normal">
-            Gameplay systems architecture, low-level tooling, and deterministic mechanics.
+            Gameplay programming, systems tooling, and player-centered game &amp; technical design.
           </p>
         </div>
 
@@ -60,16 +60,19 @@ export default function About() {
           <div className="lg:col-span-7 space-y-6">
             <div className="p-6 sm:p-8 bg-[#101012] border-2 border-[#27272a] rounded-lg shadow-xl space-y-4 text-sm sm:text-base text-[#a1a1aa] leading-relaxed">
               <p>
-                My passion for game programming began with taking apart game mechanics on PC—modding retro classics, inspecting memory buffers, and understanding why certain combat interactions feel responsive while others feel sluggish. That curiosity evolved into a dedicated focus on <strong className="text-white">Unreal Engine and modern C++</strong>.
+                I am a game developer and designer currently pursuing a B.Tech in Computer Science and Engineering at IARE Hyderabad (2023–2027), with a deep focus on <strong className="text-white">Unreal Engine C++</strong>, real-time combat feel, gameplay mechanics, and player experience.
               </p>
               <p>
-                Today, I focus on the engine layers beneath the art: 6-DOF Newtonian flight kinematics, lead-target trajectory vector math, combat input buffering, and automated engine testing. As an intern at Cyrus 365, I built headless test runners that stream GPU frames to FFmpeg on isolated Win32 desktops. At Aicade, I engineered rapid combat prototypes with 5-hit combo buffers and 180ms i-frame rolls.
+                My journey started on my dad&apos;s PC playing downloaded classics, building logic prototypes in Scratch, and self-learning C++ game architecture. I honed my skills under high-pressure constraints in 24–48 hour competitive hackathons—winning 1st Place at CodeDay 2.0, 2nd Place at HackRush, and Top 3 at MLH FrostHacks—alongside earning an Indie Top 40 selection at IGDC 2025 for <strong className="text-white">City of Aethel</strong>. As President of the Elysium Gaming Club at IARE, I organize campus gaming culture and collegiate esports tournaments.
+              </p>
+              <p>
+                Alongside gameplay programming, I have a strong grasp of <strong className="text-white">Game Design and Technical Design</strong>. Building production E2E automation plugins at Cyrus 365 required me to first deeply dissect how each game works from the inside out—mapping core gameplay loops, player objectives, progression triggers, UI state flows, and edge cases before writing automation code. Combined with designing side-scroller level maps and boss encounters for <strong className="text-white">City of Aethel</strong>, I bridge low-level engineering with player-facing design intent.
               </p>
               <div className="pt-4 border-t border-[#27272a] text-xs sm:text-sm text-[#d4d4d8]">
                 <strong className="text-white font-display uppercase tracking-wider block mb-1">
                   CAREER OBJECTIVE:
                 </strong>
-                Seeking Game Programmer and Gameplay Development Intern roles where I can contribute to production engine systems, combat mechanics, and tools engineering in collaborative studio environments.
+                Seeking <strong className="text-white">Game Programmer, Gameplay Developer, Game Design, and Technical Design</strong> roles where I can contribute to production engine systems, combat mechanics, tools engineering, and player-centered game design in collaborative studio environments.
               </div>
             </div>
 
@@ -78,23 +81,23 @@ export default function About() {
               <div className="p-4 bg-[#101012] border border-[#27272a] rounded-lg shadow-md">
                 <Cpu size={18} className="text-[#9e0b0b] mb-2" />
                 <strong className="text-white font-display text-sm uppercase block mb-1">
-                  Mechanical Precision
+                  Gameplay &amp; Combat Feel
                 </strong>
-                <span className="text-xs text-[#a1a1aa]">Sub-frame input buffering and deterministic physics.</span>
+                <span className="text-xs text-[#a1a1aa]">6-DOF physics, combo input buffers, and responsive player feedback.</span>
               </div>
               <div className="p-4 bg-[#101012] border border-[#27272a] rounded-lg shadow-md">
                 <Terminal size={18} className="text-[#9e0b0b] mb-2" />
                 <strong className="text-white font-display text-sm uppercase block mb-1">
-                  Low-Level Tooling
+                  Systems &amp; Tools
                 </strong>
-                <span className="text-xs text-[#a1a1aa]">Automated test commandlets and Slate reflection.</span>
+                <span className="text-xs text-[#a1a1aa]">Headless E2E test automation, Slate reflection, and C++ architecture.</span>
               </div>
               <div className="p-4 bg-[#101012] border border-[#27272a] rounded-lg shadow-md">
-                <Code2 size={18} className="text-[#9e0b0b] mb-2" />
+                <Compass size={18} className="text-[#9e0b0b] mb-2" />
                 <strong className="text-white font-display text-sm uppercase block mb-1">
-                  Clean Architecture
+                  Game &amp; Tech Design
                 </strong>
-                <span className="text-xs text-[#a1a1aa]">Decoupled subsystems and verified C++ standards.</span>
+                <span className="text-xs text-[#a1a1aa]">Core loops, level mapping, encounter pacing, and player-flow analysis.</span>
               </div>
             </div>
           </div>

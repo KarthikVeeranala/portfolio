@@ -44,7 +44,7 @@ export default function Contact() {
           <div className="w-44 h-3 bg-[#9e0b0b] mb-6 mx-auto md:mx-0" />
 
           <p className="text-base sm:text-xl text-[#a1a1aa] max-w-2xl leading-relaxed font-normal">
-            Currently open for Game Programmer and Gameplay Development Intern opportunities for 2026.
+            Currently open for Game Programmer, Gameplay Development, Game Design, and Technical Design opportunities for 2026.
           </p>
         </div>
 

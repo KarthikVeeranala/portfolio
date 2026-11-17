@@ -57,31 +57,31 @@ export const PROJECTS: ProjectItem[] = [
     title: "Headless E2E Automation Suite",
     category: "tools",
     engine: "Unreal Engine 5.7",
-    type: "Commercial Internship Project",
-    description: "A project-agnostic Unreal Engine C++ automation framework for headless testing, recursive Slate/UMG reflection discovery, Win32 desktop sandboxing, and real-time GPU backbuffer streaming to FFmpeg.",
-    role: "Unreal Engine Game Programmer Intern at Cyrus 365",
-    period: "Mar 2026 – Sep 2026",
+    type: "Cyrus 365 / UE 5.7 Systems Internship",
+    description: "A project-agnostic Unreal Engine C++ harness for headless test flows, recursive Slate/UMG discovery, physics determinism, replication checks, and GPU backbuffer streaming.",
+    role: "Unreal Engine Developer & Tools Programmer at Cyrus 365",
+    period: "Jan 2026 — Present",
     thumbnail: assetUrl("portfolio_media/screenshots/e2e_plugin/00_ue5_editor_e2e_suite_panel.png"),
     video: assetUrl("videos/02_e2e_automation_suite.mp4"),
-    tags: ["Unreal Engine 5.7", "C++", "Win32 API", "FFmpeg", "Slate / UMG", "Test Automation"],
+    tags: ["Unreal Engine 5.7", "C++", "Win32", "FFmpeg"],
     systems: [
-      "Win32 isolated desktop harness (winsta0\\E2E_IsolatedDesktop) preventing OS focus theft during background automation",
-      "Recursive Slate/UMG widget tree reflection engine for runtime UI hierarchy discovery and state validation",
-      "Direct GPU backbuffer video piping (FViewport::ReadPixels to FFmpeg stdin) with automated failure markers",
-      "Multi-client headless dedicated server validation commandlet with 90-second deterministic state guards"
+      "Win32 Desktop Sandboxing: Instantiates winsta0\\E2E_IsolatedDesktop, injecting hardware mouse/keyboard events without stealing OS cursor focus or user interruption.",
+      "Slate & UMG Auto-Discovery: Recursively navigates runtime Slate widget trees via reflection, synthesizing click/drag events and validating UI state changes dynamically.",
+      "GPU Backbuffer Video Streaming: Pipes raw frames directly from FViewport::ReadPixels to bundled FFmpeg via standard input (stdin), encoding 1080p H.264 recordings with automated pass/fail incident markers.",
+      "Headless Multi-Instance CI Commandlet: Orchestrates dedicated server runs with 90-second deterministic state guards, validating networked replication and physics determinism in CI/CD pipelines."
     ],
     overview: {
       genre: "Engine Tools & Automated Testing Framework",
       platform: "Windows (Win32 / UE5 Native Editor Plugin)",
       engineVersion: "Unreal Engine 5.7 (C++)",
       teamSize: "Engineering Intern (Cyrus 365 Tools Team)",
-      summary: "Engineered a production-ready C++ test orchestration plugin inside Unreal Engine 5.7. It executes headless game flows, performs deterministic UI regression validation via Slate reflection, and streams framebuffers to FFmpeg without stealing window focus from developers."
+      summary: "A project-agnostic Unreal Engine C++ harness for headless test flows, recursive Slate/UMG discovery, physics determinism, replication checks, and GPU backbuffer streaming."
     },
     contributions: [
-      "Engineered the Win32 isolated desktop subsystem to run background automated sessions without interfering with the developer's mouse or keyboard.",
-      "Developed a runtime Slate reflection discovery crawler that traverses widget hierarchies, locates interactive controls by tag/type, and validates layout state changes.",
-      "Implemented raw frame buffer extraction via FViewport::ReadPixels, piping RGB24 frames directly into an embedded FFmpeg stdin worker to capture 1080p60 MP4 test evidence.",
-      "Constructed a multi-process headless dedicated server commandlet running 90-second automated navigation and authentication test suites for CI/CD pipelines."
+      "Win32 Desktop Sandboxing: Instantiates winsta0\\E2E_IsolatedDesktop, injecting hardware mouse/keyboard events without stealing OS cursor focus or user interruption.",
+      "Slate & UMG Auto-Discovery: Recursively navigates runtime Slate widget trees via reflection, synthesizing click/drag events and validating UI state changes dynamically.",
+      "GPU Backbuffer Video Streaming: Pipes raw frames directly from FViewport::ReadPixels to bundled FFmpeg via standard input (stdin), encoding 1080p H.264 recordings with automated pass/fail incident markers.",
+      "Headless Multi-Instance CI Commandlet: Orchestrates dedicated server runs with 90-second deterministic state guards, validating networked replication and physics determinism in CI/CD pipelines."
     ],
     technicalBreakdown: {
       architecture: "The framework operates as an engine-level subsystem decoupled from game logic. Tests run on a dedicated Win32 desktop station created via CreateDesktopA('E2E_Desk'). Viewport rendering pumps into a ring buffer where frame pixels are dispatched to FFmpeg without GPU stalling.",
@@ -167,32 +167,32 @@ void FE2ESandbox::PipeBackbufferToFFmpeg(FViewport* InViewport, const FString& O
     title: "The Interlude",
     category: "unreal",
     engine: "Unreal Engine 4",
-    type: "Competitive Hackathon Project",
+    type: "1st place / CodeDay 2.0",
     award: "1st Place Winner — CodeDay 2.0",
-    description: "A fast-paced 6-DOF zero-gravity space combat flight simulator built in a 24-hour sprint, featuring Newtonian thruster physics, predictive lead-target AI, and procedural combat camera shake.",
-    role: "Solo Lead Gameplay & Combat Developer",
-    period: "24-Hour Competitive Sprint",
+    description: "A 6-DOF zero-gravity flight simulator built in 24 hours, with predictive lead-target AI, escalating interceptors, and visceral space-combat feel.",
+    role: "Solo Lead Gameplay & Combat Developer (24-Hour Competitive Sprint)",
+    period: "24-Hour Hackathon",
     thumbnail: assetUrl("portfolio_media/screenshots/the_interlude/interlude_maxres_thumbnail.jpg"),
     video: assetUrl("videos/01_the_interlude.mp4"),
-    tags: ["Unreal Engine 4", "C++", "6-DOF Physics", "Predictive AI", "Vector Math", "Niagara"],
+    tags: ["Unreal Engine 4", "Physics", "AI"],
     systems: [
-      "Newtonian 6-DOF thruster flight model with responsive pitch/yaw/roll torque dampening and zero-G inertia",
-      "Predictive lead-target vector intercept math for enemy AI and player HUD aiming reticles",
-      "State-machine enemy AI behavior calculating dynamic intercept angles, collision avoidance, and evasive rolls",
-      "Dual hitscan/ballistic weapon systems with Niagara particle trails and procedural recoil impulse"
+      "6-DOF Zero-Gravity Physics: Responsive thruster inertia, pitch/yaw/roll torque dampening, and velocity vector alignment in zero gravity.",
+      "Predictive Lead-Target AI: State-machine enemy AI calculating velocity vectors, lead-intercept angles, and evasive rolls.",
+      "Visceral Combat Feedback: Procedural camera shake, laser collision particle trails via Niagara, and spatial 3D audio.",
+      "Escalating Wave Director: Dynamic difficulty balancing managing enemy squad spawns and capital cruiser encounters."
     ],
     overview: {
       genre: "6-DOF Zero-Gravity Space Dogfight Simulator",
       platform: "PC / Windows",
       engineVersion: "Unreal Engine 4 (C++ & Blueprints)",
       teamSize: "Solo Developer",
-      summary: "Developed in 24 hours for CodeDay 2.0 (winning 1st Place), The Interlude delivers true zero-gravity 6-DOF flight combat with Newtonian physics inertia, intercept vector math, and escalating interceptor dogfights."
+      summary: "A 6-DOF zero-gravity flight simulator built in 24 hours, with predictive lead-target AI, escalating interceptors, and visceral space-combat feel."
     },
     contributions: [
-      "Engineered the full 6-DOF Newtonian flight controller from scratch using C++ rotational torque and linear thrust vectors.",
-      "Implemented predictive lead-target targeting math, calculating distance, relative velocity, and projectile flight time to position the lead reticle accurately.",
-      "Designed and coded enemy starfighter state machines managing patrol, lead-intercept, evasive slalom, and disengage behaviors.",
-      "Configured Niagara projectile particle trails, dynamic cockpit shake, and 3D spatial thruster audio."
+      "6-DOF Zero-Gravity Physics: Responsive thruster inertia, pitch/yaw/roll torque dampening, and velocity vector alignment in zero gravity.",
+      "Predictive Lead-Target AI: State-machine enemy AI calculating velocity vectors, lead-intercept angles, and evasive rolls.",
+      "Visceral Combat Feedback: Procedural camera shake, laser collision particle trails via Niagara, and spatial 3D audio.",
+      "Escalating Wave Director: Dynamic difficulty balancing managing enemy squad spawns and capital cruiser encounters."
     ],
     technicalBreakdown: {
       architecture: "The starfighter physics component calculates instantaneous angular torque and linear acceleration per tick with configurable dampening coefficients. Predictive AI evaluates target velocity vectors and solves quadratic intercept equations.",
@@ -274,32 +274,32 @@ FVector USpaceCombatComponent::CalculateLeadTarget(
     title: "ByteOasis: Code to Escape",
     category: "unreal",
     engine: "Unreal Engine 4",
-    type: "Competitive Hackathon Project",
+    type: "2nd place / HackRush 2.0",
     award: "2nd Place Winner — HackRush 2.0",
-    description: "A first-person atmospheric puzzle adventure where players restore a stranded cyber-archipelago by repairing logic terminals, decoding command flags, and routing power grids.",
-    role: "Lead Gameplay Developer & Puzzle Systems Programmer",
-    period: "48-Hour Competitive Sprint",
+    description: "A first-person puzzle survival adventure where a stranded programmer repairs logic terminals, bypasses security grids, and executes commands across a cyber-archipelago.",
+    role: "Lead Gameplay Developer & Puzzle Mechanics Designer (48-Hour Hackathon)",
+    period: "48-Hour Hackathon",
     thumbnail: assetUrl("portfolio_media/screenshots/byte_oasis/byte_oasis_maxres_thumbnail.jpg"),
     video: assetUrl("videos/03_byte_oasis.mp4"),
-    tags: ["Unreal Engine 4", "C++", "Terminal Simulation", "Puzzle Architecture", "Logic Gates"],
+    tags: ["Unreal Engine", "Puzzle", "Terminals"],
     systems: [
-      "In-game diegetic terminal simulator parsing shell commands, arguments, and system override flags",
-      "Boolean logic gate circuit verification driving physical island drawbridges and security barriers",
-      "Dynamic first-person camera interpolation between free exploration and focused terminal interaction",
-      "Procedural puzzle state manager with persistent checkpoint saving and audio-visual feedback cues"
+      "In-Game Terminal Simulator: Custom syntax parser supporting commandline input, flag validation, and state triggers.",
+      "Environmental Logic Mechanics: Water reflection shaders, day/night lighting cycles, and puzzle-triggered island drawbridges.",
+      "Diegetic HUD & Interaction: Integrated tablet UI displaying logic logs, signal frequency decoders, and circuit status.",
+      "Procedural Island Clues: Dynamic clue generation requiring algorithmic thinking and logic gates to bypass security barriers."
     ],
     overview: {
       genre: "First-Person Puzzle & Logic Adventure",
       platform: "PC / Windows",
       engineVersion: "Unreal Engine 4 (C++ & Blueprints)",
       teamSize: "2 Developers",
-      summary: "Developed during HackRush 2.0 (winning 2nd Place), ByteOasis challenges players to investigate an abandoned cyber-network, parsing real programming-style terminal commands to bypass security perimeters."
+      summary: "A first-person puzzle survival adventure where a stranded programmer repairs logic terminals, bypasses security grids, and executes commands across a cyber-archipelago."
     },
     contributions: [
-      "Built the in-game terminal command parser in C++, handling tokenization, parameter validation, and command execution.",
-      "Designed the interconnected logic circuit system that validates AND/OR/XOR puzzle conditions to unlock world pathways.",
-      "Implemented seamless camera blend transitions using ViewTarget with Blend to transition between walking and terminal UI.",
-      "Programmed atmospheric sound triggers and visual confirmation cues upon solving terminal logic gates."
+      "In-Game Terminal Simulator: Custom syntax parser supporting commandline input, flag validation, and state triggers.",
+      "Environmental Logic Mechanics: Water reflection shaders, day/night lighting cycles, and puzzle-triggered island drawbridges.",
+      "Diegetic HUD & Interaction: Integrated tablet UI displaying logic logs, signal frequency decoders, and circuit status.",
+      "Procedural Island Clues: Dynamic clue generation requiring algorithmic thinking and logic gates to bypass security barriers."
     ],
     technicalBreakdown: {
       architecture: "The terminal interface uses a modular command dispatch table. Command strings are sanitized, tokenized into command/arg pairs, and validated against the puzzle state machine to trigger world actors via interface delegates.",
@@ -375,32 +375,32 @@ bool UTerminalParser::ExecuteCommand(const FString& InCommandLine) {
     title: "Geek'O'Wars",
     category: "combat",
     engine: "Unreal Engine 4.21",
-    type: "Competitive Hackathon Project",
+    type: "Top 3 / MLH FrostHacks",
     award: "Top 3 Winner — MLH FrostHacks",
-    description: "A third-person cyber survival combat shooter set inside a computer motherboard, where players purge corrupted CPU hardware across reactive neon circuit pathways.",
-    role: "Lead Gameplay Engineer & Shaders Developer",
-    period: "36-Hour Competitive Sprint",
+    description: "A third-person survival shooter set inside a laptop motherboard, where microscopic antivirus agents purge infected CPU cores and logic gates.",
+    role: "Lead Gameplay Engineer & Shaders Developer (36-Hour Hackathon)",
+    period: "36-Hour Hackathon",
     thumbnail: assetUrl("portfolio_media/screenshots/geek_o_wars/geek_o_wars_hero.jpg"),
     video: assetUrl("videos/04_geek_o_wars.mp4"),
-    tags: ["Unreal Engine 4.21", "C++", "Third-Person Combat", "Shaders", "AI Spawning"],
+    tags: ["Unreal Engine 4.21", "Shaders", "Combat"],
     systems: [
-      "Third-person weapon aiming and heat dissipation physics with procedural recoil recovery",
-      "Dynamic enemy malware wave director with melee rushers and ranged trojan spreaders",
-      "Reactive emissive PCB trace shaders that pulse in response to combat encounters",
-      "Ammo economy and overheating threshold management enforcing strategic positioning"
+      "TPS Character Controller: Responsive sprint, aim-down-sights, weapon overheating math, and projectile recoil dissipation.",
+      "Cyber Motherboard Environment: Custom neon cyber shaders, reactive trace circuits, and emissive pulse heat sinks.",
+      "Multi-Class Malware Spawner: Fast melee rushers, ranged trojan spreaders, and heavy boss anomalies with coordinated flanking.",
+      "Wave Survival Resource Tension: Ammo scarcity drops, overheating cooldown balancing, and dynamic score multipliers."
     ],
     overview: {
       genre: "Third-Person Cyber Survival Shooter",
       platform: "PC / Windows",
       engineVersion: "Unreal Engine 4.21 (C++ & Materials)",
       teamSize: "Engineering Lead (FrostHacks Sprint)",
-      summary: "Created during MLH FrostHacks (finishing in Top 3), Geek'O'Wars puts the player in control of a nano-security agent inside an infected laptop motherboard, fighting malware swarms with heat-managed energy weapons."
+      summary: "A third-person survival shooter set inside a laptop motherboard, where microscopic antivirus agents purge infected CPU cores and logic gates."
     },
     contributions: [
-      "Programmed the third-person weapon firing mechanics, including procedural recoil impulse, aiming interpolation, and heat dissipation math.",
-      "Engineered the wave spawning coordinator that monitors active enemy counts, pathfinding choke points, and escalating encounter difficulty.",
-      "Constructed custom HLSL material functions and emissive pulse shaders for the PCB motherboard environment.",
-      "Implemented player health, shield regeneration delays, and audio-reactive impact hitsparks."
+      "TPS Character Controller: Responsive sprint, aim-down-sights, weapon overheating math, and projectile recoil dissipation.",
+      "Cyber Motherboard Environment: Custom neon cyber shaders, reactive trace circuits, and emissive pulse heat sinks.",
+      "Multi-Class Malware Spawner: Fast melee rushers, ranged trojan spreaders, and heavy boss anomalies with coordinated flanking.",
+      "Wave Survival Resource Tension: Ammo scarcity drops, overheating cooldown balancing, and dynamic score multipliers."
     ],
     technicalBreakdown: {
       architecture: "Weapon systems derive from a base C++ firearm class handling cooldown timers, heat accumulation, and ballistic trace calls. Enemy AI utilizes behavior trees with perception components tuned for motherboard choke points.",
@@ -471,32 +471,32 @@ void AGeekWeapon::FireEnergyProjectile() {
     title: "City of Aethel",
     category: "combat",
     engine: "Phaser 3 & WebGL",
-    type: "Commercial Internship & Showcase",
-    award: "Official Selection — IGDC 2025 Showcase",
-    description: "A fast-paced 2D action-combat side-scroller featuring a 5-hit combo input buffer, 180ms invulnerability dodge rolls, and multi-phase boss encounter choreography.",
-    role: "Game Developer (Intern) at Aicade",
+    type: "Aicade Internship / IGDC 2025 Indie Top 40",
+    award: "IGDC 2025 Indie Top 40",
+    description: "A Phaser 3 showcase with multi-phase boss choreography, 5-hit melee combos, i-frame dodges, and eight playable web prototypes.",
+    role: "Lead Combat Designer & Gameplay Engineer at Aicade",
     period: "Jun 2025 – Nov 2025",
     thumbnail: assetUrl("portfolio_media/screenshots/phaser_games/fixed_city_of_aethel_arena.png"),
     video: assetUrl("videos/05_city_of_aethel.mp4"),
-    tags: ["Phaser 3", "TypeScript", "WebGL", "Combat Systems", "Combo Buffering", "Matter.js"],
+    tags: ["Phaser 3", "Melee", "WebGL"],
     systems: [
-      "5-hit melee combo input buffer with 200ms frame cancellation windows and directional light/heavy attacks",
-      "180ms invulnerability frame (i-frame) dodge roll with collision layer masking and physics impulse",
-      "Multi-phase boss fight choreography with telegraphed ground hazards, enrage timers, and parry stagger states",
-      "WebGL rendering optimizations including sprite atlasing and particle pooling maintaining 60 FPS"
+      "Responsive Melee Combat: 5-hit combo attack buffering, animation cancel windows, and precision parry timings.",
+      "Dodge-Roll Invulnerability Frames: Precision i-frame calculation mitigating damage vectors within 180ms reaction windows.",
+      "Multi-Phase Boss Fight Choreography: Telegraphed ground hazard indicators, multi-stage attack phase transitions, and posture breaks.",
+      "2D Web Arcade Engine: 14 interactive prototypes testing rigid body ragdolls, ballistic parabolic curves, and wave tension."
     ],
     overview: {
       genre: "2D Action Platformer & Boss Fight Encounter",
       platform: "Web / Desktop Browser (WebGL)",
       engineVersion: "Phaser 3 & Matter.js Physics",
       teamSize: "Gameplay Engineering Intern (Aicade)",
-      summary: "Developed during my engineering internship at Aicade and selected for the prestigious IGDC 2025 Showcase, City of Aethel is an action-combat side-scroller engineered with tight frame-level timing, combo buffering, and responsive dodge mechanics."
+      summary: "A Phaser 3 showcase with multi-phase boss choreography, 5-hit melee combos, i-frame dodges, and eight playable web prototypes."
     },
     contributions: [
-      "Designed and coded the 5-hit combo input buffer, enabling queued attacks within 200ms frame windows without input locking.",
-      "Implemented the 180ms dodge roll mechanics with invulnerability frames (i-frames) and instantaneous impulse physics.",
-      "Scripted the multi-phase boss choreography, featuring telegraphed ground shockwaves, enraged charge dashes, and parry stagger windows.",
-      "Optimized browser WebGL performance with sprite sheet atlasing and object pooling to ensure a steady 60 FPS across desktop and mobile browsers."
+      "Responsive Melee Combat: 5-hit combo attack buffering, animation cancel windows, and precision parry timings.",
+      "Dodge-Roll Invulnerability Frames: Precision i-frame calculation mitigating damage vectors within 180ms reaction windows.",
+      "Multi-Phase Boss Fight Choreography: Telegraphed ground hazard indicators, multi-stage attack phase transitions, and posture breaks.",
+      "Side-Scroller Level Mapping & Encounter Flow: Designed the level maps, combat encounters, player objectives, and boss-fight areas alongside 14 interactive web arcade prototypes."
     ],
     technicalBreakdown: {
       architecture: "Input buffering utilizes a timestamped queue pattern that processes attack requests against state-machine action states (Idle, AttackSlash, DodgeRoll, Staggered), allowing attack cancels into evasive rolls.",
@@ -579,6 +579,8 @@ export interface SkillCategory {
   title: string;
   description: string;
   iconName: string;
+  fullWidth?: boolean;
+  verifiedLabel?: string;
   skills: { name: string; highlight?: boolean; context?: string }[];
 }
 
@@ -587,48 +589,67 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: "Programming Languages",
     description: "Core languages used across engine systems, gameplay programming, and tools",
     iconName: "Code2",
+    verifiedLabel: "C++ CODE & REPOSITORIES",
     skills: [
-      { name: "C++ (C++17 / C++20)", highlight: true, context: "Unreal Engine 5.7 Systems, Win32 Interop, Physics" },
-      { name: "C#", highlight: true, context: "Unity Prototyping, Tools Development" },
-      { name: "Python", highlight: false, context: "Automation Scripts, Asset Pipeline Processing" },
-      { name: "TypeScript / JavaScript", highlight: false, context: "Phaser 3, WebGL Game Engines" },
-      { name: "HLSL / Shaders", highlight: false, context: "Emissive Pulse Shaders, Niagara Custom Materials" }
+      { name: "C++ (C++17 / C++20)", highlight: true, context: "Unreal Engine 5.7 & UE4 Systems, Win32 API, Gameplay Physics" },
+      { name: "TypeScript / JavaScript", highlight: true, context: "Phaser 3, WebGL & 14+ Playable Prototypes at Aicade" },
+      { name: "C#", highlight: false, context: "General Coursework, Tools & Scripting" },
+      { name: "Blueprints Visual Scripting", highlight: false, context: "Unreal Engine Gameplay Prototyping, AI & Level Logic" },
+      { name: "Python", highlight: false, context: "Automation Scripts & Tooling Workflows" },
+      { name: "HLSL / Materials", highlight: false, context: "Emissive PCB Trace Shaders & Water Reflections" }
     ]
   },
   {
     title: "Game Engines & Frameworks",
-    description: "Production and prototyping game development environments",
+    description: "Production and rapid prototyping environments",
     iconName: "Gamepad2",
+    verifiedLabel: "SHIPPED & PLAYABLE BUILDS",
     skills: [
-      { name: "Unreal Engine 5.7 / UE4", highlight: true, context: "C++ Subsystems, Tools, Viewport Streaming, Blueprints" },
-      { name: "Slate / UMG", highlight: true, context: "Custom Editor Tools, Runtime UI, Reflection Discovery" },
-      { name: "Phaser 3 / WebGL", highlight: false, context: "14+ Rapid Combat & Physics Prototypes at Aicade" },
-      { name: "Unity", highlight: false, context: "Gameplay Prototyping & C# Scripting" },
-      { name: "Matter.js", highlight: false, context: "2D Rigid-Body Physics & Impulse Simulation" }
+      { name: "Unreal Engine 5.7 / UE4", highlight: true, context: "C++ Subsystems, E2E Automation Plugin, Gameplay & Blueprints" },
+      { name: "Phaser 3 / WebGL", highlight: true, context: "City of Aethel (IGDC 2025) & 14+ Web Prototypes at Aicade" },
+      { name: "Slate / UMG", highlight: false, context: "Custom UE5 Editor Panels, Runtime UI Reflection & Discovery" },
+      { name: "Matter.js", highlight: false, context: "2D Rigid-Body Impulses, Parabolic Arcs & Verlet Ragdolls" }
     ]
   },
   {
-    title: "Gameplay Systems & 3D Math",
-    description: "Mechanics, spatial mathematics, physics integration, and AI logic",
+    title: "Gameplay Systems & Physics",
+    description: "Mechanics, physics models, and combat systems built across shipped projects",
     iconName: "Zap",
+    verifiedLabel: "PLAYABLE DEMOS & HACKATHONS",
     skills: [
-      { name: "6-DOF Movement & Physics", highlight: true, context: "Newtonian Zero-G Flight in The Interlude" },
-      { name: "3D Vector Math & Prediction", highlight: true, context: "Lead-Target Trajectory Intercepts, Quaternions" },
-      { name: "Combat State Machines", highlight: true, context: "Combo Input Buffering, Hit Reaction Stagger" },
-      { name: "Invulnerability Frames (i-Frames)", highlight: false, context: "180ms Dodge Roll Masking in City of Aethel" },
-      { name: "Enemy AI Behavior Trees", highlight: false, context: "Wave Spawning, Choke Point Flanking, Boss States" }
+      { name: "6-DOF Zero-Gravity Flight", highlight: true, context: "Newtonian Thruster Inertia & Pitch/Yaw/Roll Torque (The Interlude)" },
+      { name: "Predictive Lead-Target AI", highlight: true, context: "Velocity-Vector Intercept Math & Evasive Rolls (The Interlude)" },
+      { name: "Melee Combos, i-Frames & Boss AI", highlight: true, context: "5-Hit Combo Buffers, 180ms Dodge Rolls & Multi-Phase Bosses (City of Aethel)" },
+      { name: "In-Game Terminal & Logic Puzzles", highlight: false, context: "Command Tokenizer, Flag Validation & Security Overrides (ByteOasis)" },
+      { name: "TPS Aiming, Recoil & Weapon Heat", highlight: false, context: "Overheat Cooldowns, Malware Waves & Flanking AI (Geek'O'Wars)" }
     ]
   },
   {
     title: "Engine Tools, Pipelines & Testing",
-    description: "Automated verification, low-level OS interop, and media pipelines",
+    description: "Automated game verification, OS sandboxing, and media capture built at Cyrus 365",
     iconName: "Terminal",
+    verifiedLabel: "CYRUS 365 PRODUCTION HARNESS",
     skills: [
-      { name: "Headless Test Automation", highlight: true, context: "Deterministic CI/CD Game Verification at Cyrus 365" },
-      { name: "Win32 Desktop Sandboxing", highlight: true, context: "winsta0\\IsolatedDesktop for Zero OS Focus Theft" },
-      { name: "GPU Backbuffer Streaming", highlight: true, context: "FViewport::ReadPixels to FFmpeg H.264 Worker" },
-      { name: "Dedicated Server Commandlets", highlight: false, context: "Multi-Instance State Guard Validation" },
-      { name: "RenderDoc & Visual Studio", highlight: false, context: "C++ Debugging, Profiling, Memory Inspection" }
+      { name: "Headless E2E Test Automation", highlight: true, context: "Project-Agnostic UE 5.7 C++ Verification Harness (Cyrus 365)" },
+      { name: "Slate / UMG Reflection Crawler", highlight: true, context: "Recursive Runtime Widget Tree Inspection & Synthetic Input" },
+      { name: "Win32 Desktop Sandboxing", highlight: true, context: "winsta0\\E2E_IsolatedDesktop for 0% OS Focus Theft" },
+      { name: "GPU Backbuffer Video Streaming", highlight: false, context: "FViewport::ReadPixels Piped to FFmpeg 1080p H.264 Artifacts" },
+      { name: "CI/CD & Dev Tooling", highlight: false, context: "Dedicated Server Commandlets, Git, GitHub Actions & Visual Studio" }
+    ]
+  },
+  {
+    title: "Game Design & Technical Design",
+    description: "Bridging systems architecture with player-facing loops, encounter flow, and level design",
+    iconName: "Compass",
+    fullWidth: true,
+    verifiedLabel: "LEVEL MAPS, PROTOTYPES & E2E FLOWS",
+    skills: [
+      { name: "Systems Deconstruction via Automation", highlight: true, context: "Dissecting Core Loops, Progression States & UI Flows Before Writing E2E Tests (Cyrus 365)" },
+      { name: "Level Mapping & Encounter Design", highlight: true, context: "Side-Scroller Level Maps, Combat Pacing & Boss Arenas (City of Aethel)" },
+      { name: "Core Gameplay Loops & Progression", highlight: true, context: "Player Objectives, Reward Structure & Puzzle Gates (ByteOasis, Cyrus 365)" },
+      { name: "Combat Feel & Game Juice", highlight: false, context: "Hit-Stop Timing, Attack Telegraphs, Recoil & Camera Kickback" },
+      { name: "Rapid Prototyping & Playtesting", highlight: false, context: "14+ Playable Mechanics Prototypes (Aicade) & 3x Hackathon Podiums" },
+      { name: "Resource Tension & Pacing", highlight: false, context: "Ammo Scarcity, Heat Thresholds & Escalating Wave Directors (Geek'O'Wars, The Interlude)" }
     ]
   }
 ];
@@ -764,7 +785,7 @@ export const CERTIFICATIONS: CertificationItem[] = [
     date: "Oct 2024",
     badge: "HARVARD",
     description: "Deep dive into 2D and 3D game engines, animation systems, state-driven gameplay mechanics, particle physics, and sound synthesis.",
-    skills: ["Game Engines", "State Machines", "2D/3D Animation", "Unity / C#", "Lua / LÖVE2D"]
+    skills: ["Game Engines", "State Machines", "2D/3D Animation", "C#", "Lua / LÖVE2D"]
   },
   {
     title: "CS50x: Introduction to Computer Science",
