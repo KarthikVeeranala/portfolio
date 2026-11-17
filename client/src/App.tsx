@@ -9,24 +9,23 @@ import Achievements from "./components/Achievements";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ToTopButton from "./components/ToTopButton";
 import DemoReelModal from "./components/DemoReelModal";
 import PhaserGameModal from "./components/PhaserGameModal";
-import LogicBeastModal from "./components/LogicBeastModal";
 
 export default function App() {
   const [isDemoReelOpen, setIsDemoReelOpen] = useState(false);
   const [isPhaserGameOpen, setIsPhaserGameOpen] = useState(false);
-  const [isLogicBeastOpen, setIsLogicBeastOpen] = useState(false);
 
   return (
     <ErrorBoundary>
-      <div className="min-h-screen bg-[#090d0d] text-[#dbe2df] font-sans selection:bg-[#16d6bd] selection:text-[#090d0d] relative overflow-x-hidden">
+      <div className="min-h-screen bg-[#131f2d] text-[#fafaf9] font-body selection:bg-[#ff6123] selection:text-[#172a3f] relative overflow-x-hidden">
         {/* Navigation */}
         <Navbar />
 
         {/* Single-Page Scroll Content */}
         <main>
-          {/* Section 00: Hero */}
+          {/* Section 00: Hero Landing */}
           <Hero onOpenDemoReel={() => setIsDemoReelOpen(true)} />
 
           {/* Section 01: Featured Projects */}
@@ -39,7 +38,7 @@ export default function App() {
           <Experience />
 
           {/* Section 04: Achievements & Honors */}
-          <Achievements onOpenLogicBeast={() => setIsLogicBeastOpen(true)} />
+          <Achievements />
 
           {/* Section 05: About Me */}
           <About />
@@ -51,20 +50,19 @@ export default function App() {
         {/* Footer */}
         <Footer />
 
-        {/* Modals & Contained Playable Experiences */}
+        {/* Trent Polack Floating TO TOP Pill Button */}
+        <ToTopButton />
+
+        {/* Demo Reel Modal */}
         <DemoReelModal
           isOpen={isDemoReelOpen}
           onClose={() => setIsDemoReelOpen(false)}
         />
 
+        {/* Contained Playable Phaser Game Modal (City of Aethel) */}
         <PhaserGameModal
           isOpen={isPhaserGameOpen}
           onClose={() => setIsPhaserGameOpen(false)}
-        />
-
-        <LogicBeastModal
-          isOpen={isLogicBeastOpen}
-          onClose={() => setIsLogicBeastOpen(false)}
         />
       </div>
     </ErrorBoundary>

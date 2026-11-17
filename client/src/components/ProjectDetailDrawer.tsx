@@ -4,13 +4,22 @@ import { ProjectItem } from "../data/portfolioData";
 
 interface ProjectDetailDrawerProps {
   project: ProjectItem;
+  isOpen?: boolean;
   onClose: () => void;
+  onPlayPhaser?: () => void;
   onOpenPhaserGame?: () => void;
 }
 
-export default function ProjectDetailDrawer({ project, onClose, onOpenPhaserGame }: ProjectDetailDrawerProps) {
+export default function ProjectDetailDrawer({
+  project,
+  onClose,
+  onPlayPhaser,
+  onOpenPhaserGame,
+}: ProjectDetailDrawerProps) {
   const [copied, setCopied] = useState(false);
   const [selectedMediaIdx, setSelectedMediaIdx] = useState(0);
+
+  const handlePlayPhaser = onPlayPhaser || onOpenPhaserGame;
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -36,37 +45,37 @@ export default function ProjectDetailDrawer({ project, onClose, onOpenPhaserGame
       aria-labelledby="modal-title"
     >
       <div
-        className="relative w-full max-w-5xl bg-[#0e1414] border border-[#16d6bd]/40 rounded-sm shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col"
+        className="relative w-full max-w-5xl bg-[#172a3f] border-4 border-[#ff6123] rounded-lg shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="sticky top-0 z-20 flex items-center justify-between px-4 sm:px-6 py-4 bg-[#090d0d] border-b border-[#d5e3de]/15">
+        <div className="sticky top-0 z-20 flex items-center justify-between px-4 sm:px-6 py-4 bg-[#131f2d] border-b-2 border-[#20354b]">
           <div className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 bg-[#16d6bd] shadow-[0_0_8px_#16d6bd]" />
+            <span className="w-3 h-3 bg-[#ff6123] rounded-sm" />
             <div>
-              <span className="text-[10px] sm:text-xs font-mono text-[#16d6bd] uppercase tracking-wider block">
+              <span className="text-[11px] font-bold text-[#ff9921] uppercase tracking-wider block">
                 {project.engine} // {project.type}
               </span>
-              <h3 id="modal-title" className="text-base sm:text-xl font-sans font-bold text-[#f0f2ed]">
+              <h3 id="modal-title" className="font-display text-lg sm:text-2xl font-black text-[#fafaf9] uppercase">
                 {project.title}
               </h3>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
-            {project.links.playableEmbed && onOpenPhaserGame && (
+          <div className="flex items-center gap-3">
+            {project.links.playableEmbed && handlePlayPhaser && (
               <button
-                onClick={onOpenPhaserGame}
-                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-semibold text-[#090d0d] bg-[#16d6bd] hover:bg-[#16d6bd]/90 rounded-sm cursor-pointer"
+                onClick={handlePlayPhaser}
+                className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold uppercase text-[#172a3f] bg-[#ff6123] hover:bg-[#ff8547] rounded transition-all cursor-pointer"
               >
-                <Gamepad2 size={14} />
+                <Gamepad2 size={15} />
                 <span>PLAY WEBGL BUILD</span>
               </button>
             )}
 
             <button
               onClick={onClose}
-              className="p-1.5 text-[#77847f] hover:text-[#f0f2ed] hover:bg-[#16d6bd]/10 border border-[#d5e3de]/15 rounded-sm transition-colors cursor-pointer"
+              className="p-1.5 text-[#b0c4de] hover:text-[#fafaf9] hover:bg-[#20354b] border border-[#20354b] rounded transition-colors cursor-pointer"
               aria-label="Close project details"
             >
               <X size={20} />
@@ -76,184 +85,214 @@ export default function ProjectDetailDrawer({ project, onClose, onOpenPhaserGame
 
         {/* Modal Scrollable Content */}
         <div className="overflow-y-auto p-4 sm:p-6 lg:p-8 space-y-8 text-sm">
-          {/* Quick Metrics Bar */}
+          
+          {/* Quick Metrics Strip */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
             {project.metrics.map((m, idx) => (
-              <div key={idx} className="p-3 bg-[#121a19] border border-[#d5e3de]/10 rounded-sm font-mono">
-                <span className="block text-xs sm:text-sm font-bold text-[#16d6bd] truncate">{m.value}</span>
-                <span className="text-[10px] text-[#77847f] uppercase">{m.label}</span>
+              <div key={idx} className="p-3 bg-[#131f2d] border border-[#20354b] rounded">
+                <span className="block font-display text-sm sm:text-base font-black text-[#ff6123] truncate">
+                  {m.value}
+                </span>
+                <span className="text-[10px] text-[#b0c4de] uppercase font-bold tracking-wider">
+                  {m.label}
+                </span>
               </div>
             ))}
           </div>
 
-          {/* Section 1: Overview */}
-          <div>
-            <h4 className="text-xs font-mono uppercase text-[#16d6bd] tracking-widest mb-2 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-[#16d6bd]" /> 01 // Project Overview &amp; Scope
+          {/* ═══════════════════════════════════════════════════════════════════ */}
+          {/* MEDIA FIRST: VISUAL EVIDENCE, GAMEPLAY REEL & SCREENSHOTS AT TOP   */}
+          {/* ═══════════════════════════════════════════════════════════════════ */}
+          <div className="p-4 sm:p-6 bg-[#131f2d] border border-[#20354b] rounded-lg">
+            <h4 className="font-display text-xs uppercase font-black text-[#ff6123] tracking-widest mb-4 flex items-center gap-2">
+              <span className="w-2 h-2 bg-[#ff6123]" /> 01 // GAMEPLAY &amp; SYSTEM MEDIA REEL
             </h4>
-            <p className="text-[#dbe2df] text-sm sm:text-base leading-relaxed mb-4">
+
+            {/* Main Active Media Viewport */}
+            <div className="relative aspect-[16/9] w-full bg-black rounded overflow-hidden border border-[#20354b] mb-4">
+              {activeMedia?.type === "video" ? (
+                <video
+                  controls
+                  autoPlay
+                  muted
+                  playsInline
+                  src={activeMedia.url}
+                  className="w-full h-full object-contain"
+                />
+              ) : (
+                <img
+                  src={activeMedia?.url}
+                  alt={activeMedia?.title || project.title}
+                  className="w-full h-full object-contain bg-black"
+                />
+              )}
+            </div>
+
+            {/* Active Media Caption */}
+            {activeMedia && (
+              <div className="flex items-center justify-between gap-4 p-3 bg-[#172a3f] border border-[#20354b] rounded mb-4">
+                <div>
+                  <h5 className="font-bold text-sm text-[#fafaf9]">{activeMedia.title}</h5>
+                  <p className="text-xs text-[#b0c4de]">{activeMedia.caption}</p>
+                </div>
+                <span className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#ff9921] bg-[#20354b] rounded shrink-0">
+                  {activeMedia.type === "video" ? "VIDEO" : "SCREENSHOT"}
+                </span>
+              </div>
+            )}
+
+            {/* Media Thumbnails Filmstrip */}
+            {project.gallery.length > 1 && (
+              <div className="flex gap-2 overflow-x-auto pb-2">
+                {project.gallery.map((media, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedMediaIdx(idx)}
+                    className={`relative w-24 h-16 sm:w-28 sm:h-18 shrink-0 rounded overflow-hidden border-2 transition-all cursor-pointer ${
+                      selectedMediaIdx === idx
+                        ? "border-[#ff6123] scale-105 shadow-md"
+                        : "border-[#20354b] opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    {media.type === "video" ? (
+                      <div className="w-full h-full bg-[#20354b] flex items-center justify-center">
+                        <Video size={18} className="text-[#ff6123]" />
+                      </div>
+                    ) : (
+                      <img
+                        src={media.url}
+                        alt={media.title}
+                        className="w-full h-full object-cover"
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* ═══════════════════════════════════════════════════════════════════ */}
+          {/* SECTION 02: PROJECT OVERVIEW & SCOPE                                */}
+          {/* ═══════════════════════════════════════════════════════════════════ */}
+          <div className="p-4 sm:p-6 bg-[#131f2d] border border-[#20354b] rounded-lg">
+            <h4 className="font-display text-xs uppercase font-black text-[#ff6123] tracking-widest mb-3 flex items-center gap-2">
+              <span className="w-2 h-2 bg-[#ff6123]" /> 02 // PROJECT OVERVIEW &amp; SCOPE
+            </h4>
+            <p className="text-[#fafaf9] text-sm sm:text-base leading-relaxed mb-4">
               {project.overview.summary}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 p-3 bg-[#121a19] border border-[#d5e3de]/10 rounded-sm font-mono text-xs">
-              <div><span className="text-[#77847f]">Role:</span> <strong className="text-[#f0f2ed]">{project.role}</strong></div>
-              <div><span className="text-[#77847f]">Period:</span> <strong className="text-[#f0f2ed]">{project.period}</strong></div>
-              <div><span className="text-[#77847f]">Platform:</span> <strong className="text-[#f0f2ed]">{project.overview.platform}</strong></div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-3 bg-[#172a3f] border border-[#20354b] rounded text-xs">
+              <div>
+                <span className="text-[#b0c4de] block text-[10px] uppercase font-bold">Role</span>
+                <strong className="text-[#fafaf9]">{project.role}</strong>
+              </div>
+              <div>
+                <span className="text-[#b0c4de] block text-[10px] uppercase font-bold">Period</span>
+                <strong className="text-[#fafaf9]">{project.period}</strong>
+              </div>
+              <div>
+                <span className="text-[#b0c4de] block text-[10px] uppercase font-bold">Platform</span>
+                <strong className="text-[#fafaf9]">{project.overview.platform}</strong>
+              </div>
             </div>
           </div>
 
-          {/* Section 2: Personal Contributions */}
-          <div>
-            <h4 className="text-xs font-mono uppercase text-[#16d6bd] tracking-widest mb-3 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-[#16d6bd]" /> 02 // Personal Engineering Contributions
+          {/* ═══════════════════════════════════════════════════════════════════ */}
+          {/* SECTION 03: PERSONAL ENGINEERING CONTRIBUTIONS                     */}
+          {/* ═══════════════════════════════════════════════════════════════════ */}
+          <div className="p-4 sm:p-6 bg-[#131f2d] border border-[#20354b] rounded-lg">
+            <h4 className="font-display text-xs uppercase font-black text-[#ff6123] tracking-widest mb-4 flex items-center gap-2">
+              <span className="w-2 h-2 bg-[#ff6123]" /> 03 // PERSONAL ENGINEERING CONTRIBUTIONS
             </h4>
-            <div className="space-y-2">
+            <div className="space-y-3">
               {project.contributions.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-3 p-3 bg-[#121a19] border border-[#d5e3de]/10 rounded-sm">
-                  <span className="text-xs font-mono text-[#16d6bd] font-bold mt-0.5">#{idx + 1}</span>
-                  <p className="text-xs sm:text-sm text-[#dbe2df] leading-relaxed">{item}</p>
+                <div
+                  key={idx}
+                  className="flex items-start gap-3 p-3.5 bg-[#172a3f] border border-[#20354b] rounded"
+                >
+                  <span className="font-display text-xs text-[#ff6123] font-black mt-0.5 shrink-0">
+                    #{idx + 1}
+                  </span>
+                  <p className="text-xs sm:text-sm text-[#fafaf9] leading-relaxed">{item}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Section 3: Technical Breakdown & C++ Snippet */}
-          <div>
-            <h4 className="text-xs font-mono uppercase text-[#16d6bd] tracking-widest mb-3 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-[#16d6bd]" /> 03 // Technical Architecture &amp; Implementation
+          {/* ═══════════════════════════════════════════════════════════════════ */}
+          {/* SECTION 04: ARCHITECTURE & C++ CODE BREAKDOWN                      */}
+          {/* ═══════════════════════════════════════════════════════════════════ */}
+          <div className="p-4 sm:p-6 bg-[#131f2d] border border-[#20354b] rounded-lg">
+            <h4 className="font-display text-xs uppercase font-black text-[#ff6123] tracking-widest mb-3 flex items-center gap-2">
+              <span className="w-2 h-2 bg-[#ff6123]" /> 04 // ARCHITECTURAL BREAKDOWN &amp; CODE SNIPPET
             </h4>
-            <div className="p-4 bg-[#121a19] border border-[#d5e3de]/10 rounded-sm space-y-3 mb-4">
-              <div>
-                <strong className="text-xs font-mono text-[#16d6bd] uppercase block mb-1">Architecture &amp; System Flow</strong>
-                <p className="text-xs sm:text-sm text-[#dbe2df] leading-relaxed">{project.technicalBreakdown.architecture}</p>
-              </div>
-              <div className="pt-2 border-t border-[#d5e3de]/10">
-                <strong className="text-xs font-mono text-[#16d6bd] uppercase block mb-1">Technical Challenge &amp; Solution</strong>
-                <p className="text-xs sm:text-sm text-[#dbe2df] leading-relaxed">{project.technicalBreakdown.challenges}</p>
-              </div>
-            </div>
+            <p className="text-xs sm:text-sm text-[#b0c4de] leading-relaxed mb-4">
+              {project.technicalBreakdown.architecture}
+            </p>
 
-            {/* Code Snippet Box */}
-            <div className="border border-[#16d6bd]/30 rounded-sm overflow-hidden bg-[#090d0d]">
-              <div className="flex items-center justify-between px-4 py-2 bg-[#121a19] border-b border-[#d5e3de]/15">
-                <span className="text-xs font-mono text-[#16d6bd] flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#16d6bd]/80" />
+            <div className="relative bg-[#0d1722] border border-[#20354b] rounded overflow-hidden">
+              <div className="flex items-center justify-between px-4 py-2.5 bg-[#172a3f] border-b border-[#20354b]">
+                <span className="text-xs font-bold text-[#fafaf9]">
                   {project.technicalBreakdown.codeSnippetTitle}
                 </span>
                 <button
                   onClick={copyCode}
-                  className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono text-[#77847f] hover:text-[#f0f2ed] border border-[#d5e3de]/15 hover:border-[#16d6bd] rounded-sm transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-bold uppercase text-[#ff6123] hover:text-white bg-[#20354b] hover:bg-[#ff6123] rounded transition-colors cursor-pointer"
                 >
-                  {copied ? <Check size={12} className="text-[#16d6bd]" /> : <Copy size={12} />}
+                  {copied ? <Check size={13} /> : <Copy size={13} />}
                   <span>{copied ? "COPIED" : "COPY CODE"}</span>
                 </button>
               </div>
-              <pre className="p-4 text-xs font-mono text-[#dbe2df] overflow-x-auto leading-relaxed max-h-80 bg-[#090d0d]">
+              <pre className="p-4 text-xs font-mono text-[#b0c4de] overflow-x-auto leading-relaxed">
                 <code>{project.technicalBreakdown.codeSnippet}</code>
               </pre>
             </div>
           </div>
 
-          {/* Section 4: Media Gallery & Evidence */}
-          <div>
-            <h4 className="text-xs font-mono uppercase text-[#16d6bd] tracking-widest mb-3 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-[#16d6bd]" /> 04 // Gameplay Footage &amp; Editor Evidence
-            </h4>
+          {/* Links & Repository Actions */}
+          <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#20354b]">
+            {project.links.github && (
+              <a
+                href={project.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 font-display text-xs uppercase font-black text-white bg-[#ff6123] hover:bg-[#ff8547] rounded shadow-sm transition-all"
+              >
+                <span>VIEW GITHUB REPOSITORY</span>
+                <ExternalLink size={14} />
+              </a>
+            )}
 
-            {/* Primary Selected Media Display */}
-            <div className="border border-[#d5e3de]/15 rounded-sm overflow-hidden bg-black mb-3">
-              {activeMedia.type === "video" ? (
-                <div className="relative aspect-video bg-black flex items-center justify-center">
-                  <video
-                    src={activeMedia.url}
-                    controls
-                    playsInline
-                    className="w-full h-full object-contain"
-                    title={activeMedia.title}
-                  />
-                </div>
-              ) : (
-                <div className="relative aspect-video bg-black flex items-center justify-center">
-                  <img
-                    src={activeMedia.url}
-                    alt={activeMedia.title}
-                    className="w-full h-full object-contain"
-                    loading="lazy"
-                  />
-                </div>
-              )}
-              <div className="p-3 bg-[#121a19] border-t border-[#d5e3de]/10 flex items-center justify-between">
-                <div>
-                  <strong className="text-xs font-mono text-[#f0f2ed] block">{activeMedia.title}</strong>
-                  <span className="text-[11px] text-[#77847f]">{activeMedia.caption}</span>
-                </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 border border-[#16d6bd]/30 text-[#16d6bd] uppercase">
-                  {activeMedia.type}
-                </span>
-              </div>
-            </div>
+            {project.links.build && (
+              <a
+                href={project.links.build}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 font-display text-xs uppercase font-black text-[#fafaf9] border border-[#ff9921] bg-[#20354b] hover:bg-[#ff9921] hover:text-[#172a3f] rounded transition-all"
+              >
+                <span>DOWNLOAD STANDALONE BUILD</span>
+                <ExternalLink size={14} />
+              </a>
+            )}
 
-            {/* Gallery Thumbnails Carousel / Strip */}
-            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
-              {project.gallery.map((media, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setSelectedMediaIdx(idx)}
-                  className={`relative aspect-video rounded-sm overflow-hidden border transition-all cursor-pointer ${selectedMediaIdx === idx ? "border-[#16d6bd] ring-1 ring-[#16d6bd]" : "border-[#d5e3de]/15 hover:border-[#d5e3de]/40 opacity-75 hover:opacity-100"}`}
-                  aria-label={`View slide ${idx + 1}: ${media.title}`}
-                >
-                  {media.type === "video" ? (
-                    <div className="w-full h-full bg-[#121a19] flex flex-col items-center justify-center text-[#16d6bd]">
-                      <Video size={16} />
-                      <span className="text-[9px] font-mono mt-1">VIDEO</span>
-                    </div>
-                  ) : (
-                    <img src={media.url} alt={media.title} className="w-full h-full object-cover" loading="lazy" />
-                  )}
-                  {selectedMediaIdx === idx && (
-                    <div className="absolute inset-0 bg-[#16d6bd]/10 pointer-events-none" />
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Section 5: Verified Links & Repository Notice */}
-          <div className="p-4 bg-[#121a19] border border-[#d5e3de]/15 rounded-sm flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
-            <div className="max-w-xl">
-              <span className="text-[#77847f] block mb-1">VERIFIED CODE &amp; BUILD STATUS:</span>
-              <p className="text-[#dbe2df] text-[11px] leading-relaxed">{project.links.note}</p>
-            </div>
-            <div className="flex items-center gap-2">
-              {project.links.playableEmbed && onOpenPhaserGame && (
-                <button
-                  onClick={onOpenPhaserGame}
-                  className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#090d0d] bg-[#16d6bd] hover:bg-[#16d6bd]/90 rounded-sm cursor-pointer shadow-md"
-                >
-                  <Gamepad2 size={14} />
-                  <span>PLAY DEMO (WEBGL)</span>
-                </button>
-              )}
-              {project.links.github && (
-                <a
-                  href={project.links.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-[#f0f2ed] border border-[#d5e3de]/20 bg-[#0e1414] hover:border-[#16d6bd] hover:text-[#16d6bd] rounded-sm transition-colors"
-                >
-                  <span>GITHUB REPO</span>
-                  <ExternalLink size={13} />
-                </a>
-              )}
-            </div>
+            {project.links.playableEmbed && handlePlayPhaser && (
+              <button
+                onClick={handlePlayPhaser}
+                className="inline-flex items-center gap-1.5 px-4 py-2 font-display text-xs uppercase font-black text-white bg-[#ff6123] hover:bg-[#ff8547] rounded shadow-sm transition-all cursor-pointer"
+              >
+                <Gamepad2 size={14} />
+                <span>LAUNCH WEBGL PLAYABLE DEMO</span>
+              </button>
+            )}
           </div>
         </div>
 
         {/* Modal Footer */}
-        <div className="sticky bottom-0 z-20 flex items-center justify-between px-4 sm:px-6 py-3 bg-[#090d0d] border-t border-[#d5e3de]/15 font-mono text-xs">
-          <span className="text-[#77847f]">PRESS ESC TO CLOSE</span>
+        <div className="px-6 py-4 bg-[#131f2d] border-t border-[#20354b] flex items-center justify-between">
+          <span className="text-xs text-[#b0c4de]">Press ESC to close</span>
           <button
             onClick={onClose}
-            className="px-4 py-1.5 text-xs text-[#090d0d] bg-[#16d6bd] hover:bg-[#16d6bd]/90 rounded-sm font-semibold cursor-pointer"
+            className="px-5 py-2 font-display text-xs uppercase font-black text-white bg-[#ff6123] hover:bg-[#ff8547] rounded transition-colors cursor-pointer"
           >
             CLOSE BREAKDOWN
           </button>

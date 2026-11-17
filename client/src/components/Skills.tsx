@@ -1,78 +1,89 @@
 import { Code2, Gamepad2, Terminal, Zap } from "lucide-react";
-import { SKILL_CATEGORIES } from "../data/portfolioData";
+import { SKILL_CATEGORIES, assetUrl } from "../data/portfolioData";
 
 export default function Skills() {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case "Code2":
-        return <Code2 size={18} className="text-[#16d6bd]" />;
+        return <Code2 size={20} className="text-[#ff6123]" />;
       case "Gamepad2":
-        return <Gamepad2 size={18} className="text-[#16d6bd]" />;
+        return <Gamepad2 size={20} className="text-[#ff6123]" />;
       case "Zap":
-        return <Zap size={18} className="text-[#16d6bd]" />;
+        return <Zap size={20} className="text-[#ff6123]" />;
       case "Terminal":
-        return <Terminal size={18} className="text-[#16d6bd]" />;
+        return <Terminal size={20} className="text-[#ff6123]" />;
       default:
-        return <Code2 size={18} className="text-[#16d6bd]" />;
+        return <Code2 size={20} className="text-[#ff6123]" />;
     }
   };
 
   return (
-    <section id="skills" className="py-20 sm:py-28 border-b border-[#d5e3de]/10 bg-[#090d0d]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="skills"
+      className="relative py-24 sm:py-32 section-with-bg bg-[#131f2d] border-b-[15px] border-[#ff6123]"
+      style={{
+        backgroundImage: `url(${assetUrl("assets/backgrounds/trent_bg_steel_hunters.png")})`,
+      }}
+    >
+      {/* Dark Navy Overlay */}
+      <div className="section-overlay-navy pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+        
         {/* Section Header */}
-        <div className="mb-12">
-          <div className="inline-flex items-center gap-2 px-2.5 py-1 mb-3 border border-[#16d6bd]/30 bg-[#16d6bd]/5 rounded-sm">
-            <span className="text-[11px] font-mono text-[#16d6bd] tracking-widest uppercase">
-              02 // TECHNICAL COMPETENCIES
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-bold text-[#f0f2ed] tracking-tight">
-            Technical Skills &amp; Engine Stack
+        <div className="mb-14">
+          <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-black uppercase text-[#fafaf9] tracking-tight mb-4">
+            TECHNICAL SKILLS
           </h2>
-          <p className="text-sm sm:text-base text-[#77847f] mt-2 max-w-2xl font-mono">
-            Directly demonstrable competencies backed by production internships, hackathon victories, and live prototypes. No arbitrary percentage ratings.
+          <div className="w-44 h-3 bg-[#ff6123] mb-6" />
+
+          <p className="text-base sm:text-xl text-[#b0c4de] max-w-3xl leading-relaxed font-normal">
+            Directly demonstrable competencies backed by commercial internships at Cyrus 365 and Aicade, hackathon victories, and playable Unreal Engine C++ prototypes. Zero arbitrary percentages.
           </p>
         </div>
 
         {/* 4 Skill Category Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {SKILL_CATEGORIES.map((category) => (
             <div
               key={category.title}
-              className="p-6 bg-[#0e1414] border border-[#d5e3de]/15 hover:border-[#16d6bd]/40 rounded-sm transition-colors flex flex-col justify-between"
+              className="p-6 sm:p-8 bg-[#172a3f] border-2 border-[#20354b] hover:border-[#ff6123] rounded-lg transition-all shadow-xl flex flex-col justify-between"
             >
               <div>
                 {/* Category Header */}
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-[#121a19] border border-[#d5e3de]/10 rounded-sm">
+                <div className="flex items-center gap-3.5 mb-5 pb-4 border-b border-[#20354b]">
+                  <div className="p-2.5 bg-[#20354b] border border-[rgba(147,184,227,0.18)] rounded-md">
                     {getIcon(category.iconName)}
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-sans font-bold text-[#f0f2ed]">
+                    <h3 className="font-display text-lg sm:text-xl font-black text-[#fafaf9] uppercase tracking-tight">
                       {category.title}
                     </h3>
-                    <span className="text-xs text-[#77847f] font-mono">{category.description}</span>
+                    <span className="text-xs text-[#b0c4de] font-medium">{category.description}</span>
                   </div>
                 </div>
 
                 {/* Skills Tag List */}
-                <div className="mt-5 space-y-2.5">
+                <div className="space-y-3">
                   {category.skills.map((skill) => (
                     <div
                       key={skill.name}
-                      className="p-2.5 bg-[#121a19] border border-[#d5e3de]/10 rounded-sm flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 transition-colors hover:border-[#16d6bd]/30"
+                      className="p-3 bg-[#131f2d] border border-[#20354b] hover:border-[#ff6123]/60 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 transition-colors"
                     >
-                      <div className="flex items-center gap-2 font-mono text-xs">
+                      <div className="flex items-center gap-2">
                         {skill.highlight && (
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#16d6bd] shadow-[0_0_6px_#16d6bd]" />
+                          <span className="w-2 h-2 rounded-full bg-[#ff6123] shadow-[0_0_6px_#ff6123]" />
                         )}
-                        <span className={`font-semibold ${skill.highlight ? "text-[#16d6bd]" : "text-[#f0f2ed]"}`}>
+                        <span
+                          className={`text-xs sm:text-sm font-bold ${
+                            skill.highlight ? "text-[#ff6123]" : "text-[#fafaf9]"
+                          }`}
+                        >
                           {skill.name}
                         </span>
                       </div>
                       {skill.context && (
-                        <span className="text-[11px] font-mono text-[#77847f] sm:text-right">
+                        <span className="text-[11px] text-[#b0c4de] sm:text-right font-medium">
                           {skill.context}
                         </span>
                       )}
@@ -82,9 +93,9 @@ export default function Skills() {
               </div>
 
               {/* Verified Evidence Footer */}
-              <div className="mt-6 pt-3 border-t border-[#d5e3de]/10 flex items-center justify-between text-[11px] font-mono text-[#77847f]">
-                <span>VERIFIED VIA:</span>
-                <span className="text-[#16d6bd]">PROJECT CODE &amp; REPOSITORIES</span>
+              <div className="mt-6 pt-4 border-t border-[#20354b] flex items-center justify-between text-xs font-bold text-[#b0c4de]">
+                <span className="uppercase tracking-wider">VERIFIED IN PRODUCTION:</span>
+                <span className="text-[#ff9921]">C++ CODE &amp; REPOSITORIES</span>
               </div>
             </div>
           ))}

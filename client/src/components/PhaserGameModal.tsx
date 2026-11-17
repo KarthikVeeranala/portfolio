@@ -30,18 +30,18 @@ export default function PhaserGameModal({ isOpen, onClose }: PhaserGameModalProp
       aria-labelledby="game-modal-title"
     >
       <div
-        className={`relative w-full ${isFullscreen ? "max-w-full h-full" : "max-w-5xl h-[88vh]"} bg-[#0e1414] border border-[#16d6bd]/40 rounded-sm shadow-2xl overflow-hidden my-auto flex flex-col`}
+        className={`relative w-full ${isFullscreen ? "max-w-full h-full" : "max-w-5xl h-[88vh]"} bg-[#172a3f] border-4 border-[#ff6123] rounded-lg shadow-2xl overflow-hidden my-auto flex flex-col`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-4 sm:px-6 py-3 bg-[#090d0d] border-b border-[#d5e3de]/15">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 bg-[#131f2d] border-b-2 border-[#20354b]">
           <div className="flex items-center gap-2.5">
-            <span className="w-2.5 h-2.5 bg-[#16d6bd] shadow-[0_0_8px_#16d6bd]" />
+            <span className="w-3 h-3 bg-[#ff6123] rounded-sm" />
             <div>
-              <h3 id="game-modal-title" className="text-sm sm:text-base font-mono font-bold text-[#f0f2ed]">
+              <h3 id="game-modal-title" className="font-display text-sm sm:text-base font-black text-[#fafaf9] uppercase">
                 CITY OF AETHEL // PLAYABLE BUILD (PHASER 3 &amp; MATTER.JS)
               </h3>
-              <span className="text-[10px] font-mono text-[#77847f]">
+              <span className="text-[10px] text-[#ff9921] font-bold uppercase">
                 IGDC 2025 SHOWCASE SELECTION // AICADE INTERNSHIP
               </span>
             </div>
@@ -50,14 +50,14 @@ export default function PhaserGameModal({ isOpen, onClose }: PhaserGameModalProp
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsFullscreen(!isFullscreen)}
-              className="p-1.5 text-[#77847f] hover:text-[#f0f2ed] border border-[#d5e3de]/15 rounded-sm transition-colors cursor-pointer"
+              className="p-1.5 text-[#b0c4de] hover:text-[#fafaf9] border border-[#20354b] rounded transition-colors cursor-pointer"
               aria-label={isFullscreen ? "Exit fullscreen" : "Toggle fullscreen"}
             >
               <Maximize2 size={16} />
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 text-[#77847f] hover:text-[#f0f2ed] hover:bg-[#16d6bd]/10 border border-[#d5e3de]/15 rounded-sm transition-colors cursor-pointer"
+              className="p-1.5 text-[#b0c4de] hover:text-[#fafaf9] hover:bg-[#20354b] border border-[#20354b] rounded transition-colors cursor-pointer"
               aria-label="Close game modal"
             >
               <X size={18} />
@@ -76,17 +76,17 @@ export default function PhaserGameModal({ isOpen, onClose }: PhaserGameModalProp
         </div>
 
         {/* Controls Guide Footer */}
-        <div className="px-4 py-2.5 bg-[#090d0d] border-t border-[#d5e3de]/15 flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-[#77847f]">
+        <div className="px-4 py-3 bg-[#131f2d] border-t border-[#20354b] flex flex-wrap items-center justify-between gap-3 text-xs text-[#b0c4de]">
           <div className="flex flex-wrap items-center gap-3 sm:gap-6">
-            <span><strong className="text-[#16d6bd]">MOVE:</strong> A/D or Arrow Keys</span>
-            <span><strong className="text-[#16d6bd]">JUMP:</strong> W or Space</span>
-            <span><strong className="text-[#16d6bd]">ATTACK (5-HIT COMBO):</strong> J / Z</span>
-            <span><strong className="text-[#16d6bd]">DODGE (180ms i-FRAME):</strong> K / X</span>
+            <span><strong className="text-[#ff6123]">MOVE:</strong> A/D or Arrow Keys</span>
+            <span><strong className="text-[#ff6123]">JUMP:</strong> W or Space</span>
+            <span><strong className="text-[#ff6123]">ATTACK (5-HIT COMBO):</strong> J / Z</span>
+            <span><strong className="text-[#ff6123]">DODGE (180ms i-FRAME):</strong> K / X</span>
           </div>
 
           <button
             onClick={onClose}
-            className="px-3 py-1 text-xs text-[#090d0d] bg-[#16d6bd] hover:bg-[#16d6bd]/90 rounded-sm font-semibold cursor-pointer"
+            className="px-4 py-1.5 text-xs font-bold uppercase text-white bg-[#ff6123] hover:bg-[#ff8547] rounded cursor-pointer"
           >
             EXIT GAME
           </button>

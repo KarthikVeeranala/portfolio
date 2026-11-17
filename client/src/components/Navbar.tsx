@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Download, Menu, X } from "lucide-react";
-import { assetUrl } from "../data/portfolioData";
+import { Menu, X, Linkedin, Github, Mail, Instagram, Youtube } from "lucide-react";
 
 interface NavItem {
   id: string;
@@ -8,29 +7,53 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { id: "projects", label: "Projects" },
-  { id: "skills", label: "Skills" },
-  { id: "experience", label: "Experience" },
-  { id: "achievements", label: "Achievements" },
-  { id: "about", label: "About" },
-  { id: "contact", label: "Contact" }
+  { id: "hero", label: "home" },
+  { id: "projects", label: "projects" },
+  { id: "skills", label: "skills" },
+  { id: "experience", label: "career" },
+  { id: "about", label: "about" },
+  { id: "contact", label: "contact" }
+];
+
+const SOCIAL_LINKS = [
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/karthikveeranala",
+    icon: Linkedin,
+    label: "in"
+  },
+  {
+    name: "GitHub",
+    href: "https://github.com/karthikveeranala",
+    icon: Github,
+    label: "gh"
+  },
+  {
+    name: "Gmail",
+    href: "mailto:karthikveeranala09@gmail.com",
+    icon: Mail,
+    label: "gm"
+  },
+  {
+    name: "Instagram",
+    href: "https://instagram.com",
+    icon: Instagram,
+    label: "ig"
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com",
+    icon: Youtube,
+    label: "yt"
+  }
 ];
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState<string>("hero");
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  const [scrolled, setScrolled] = useState<boolean>(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const sectionIds = ["hero", ...NAV_ITEMS.map((item) => item.id)];
+    const sectionIds = NAV_ITEMS.map((item) => item.id);
     const observers: IntersectionObserver[] = [];
 
     sectionIds.forEach((id) => {
@@ -45,7 +68,7 @@ export default function Navbar() {
             }
           });
         },
-        { rootMargin: "-30% 0px -60% 0px" }
+        { rootMargin: "-20% 0px -60% 0px" }
       );
       observer.observe(el);
       observers.push(observer);
@@ -65,104 +88,109 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? "bg-[#090d0d]/95 backdrop-blur-md border-b border-[#d5e3de]/10 shadow-lg shadow-black/40" : "bg-transparent border-b border-[#d5e3de]/5"}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Brand Monogram */}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#172a3f] border-b-[12px] border-[#ff6123] shadow-xl">
+      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        
+        {/* Left: Brand Monogram / Title */}
         <button
           onClick={() => scrollToSection("hero")}
-          className="flex items-center gap-3 group text-left focus:outline-none"
-          aria-label="Karthik Veeranala Home"
+          className="text-left focus:outline-none transition-transform hover:scale-[1.01]"
+          aria-label="Karthik Veeranala's Internet Website"
         >
-          <span className="relative w-7 h-7 flex items-center justify-center border border-[#16d6bd]/40 bg-[#16d6bd]/10 group-hover:border-[#16d6bd] transition-colors">
-            <span className="text-[#16d6bd] font-mono text-xs font-bold tracking-wider">KV</span>
-            <span className="absolute -top-0.5 -left-0.5 w-1 h-1 bg-[#16d6bd]" />
-            <span className="absolute -bottom-0.5 -right-0.5 w-1 h-1 bg-[#16d6bd]" />
-          </span>
-          <span className="font-mono text-xs sm:text-sm font-semibold tracking-tight text-[#f0f2ed]">
-            KARTHIK VEERANALA <span className="text-[#16d6bd] text-xs font-normal hidden sm:inline">// GAME PROGRAMMER</span>
+          <span className="font-display font-black text-base sm:text-lg lg:text-xl uppercase tracking-tight text-[#ff6123]">
+            KARTHIK VEERANALA'S INTERNET WEBSITE
           </span>
         </button>
 
-        {/* Desktop Navigation Links (>= 860px) */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-2" aria-label="Desktop Navigation">
+        {/* Center: Desktop Navigation Links (lowercase Archivo) */}
+        <nav className="hidden lg:flex items-center gap-6" aria-label="Desktop Navigation">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.id;
             return (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative px-3 py-1.5 text-xs font-mono tracking-wider uppercase transition-colors rounded-sm ${isActive ? "text-[#16d6bd] font-semibold" : "text-[#77847f] hover:text-[#f0f2ed]"}`}
+                className={`text-sm font-bold tracking-normal transition-colors lowercase cursor-pointer relative py-1 ${
+                  isActive ? "text-[#ff6123]" : "text-[#fafaf9] hover:text-[#ff6123]"
+                }`}
               >
                 {item.label}
                 {isActive && (
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-[#16d6bd] shadow-[0_0_8px_#16d6bd]" />
+                  <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-[#ff6123]" />
                 )}
               </button>
             );
           })}
-
-          {/* Direct Resume Download CTA */}
-          <a
-            href={assetUrl("Karthik_Veeranala_Resume.pdf")}
-            download="Karthik_Veeranala_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-3 inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-medium text-[#16d6bd] border border-[#16d6bd]/40 bg-[#16d6bd]/10 hover:bg-[#16d6bd] hover:text-[#090d0d] transition-all rounded-sm shadow-[0_0_12px_rgba(22,214,189,0.15)]"
-            title="Download Karthik Veeranala's Resume (PDF)"
-          >
-            <Download size={13} />
-            <span>RESUME</span>
-          </a>
         </nav>
 
-        {/* Mobile Hamburger Toggle (< md) */}
-        <div className="flex md:hidden items-center gap-2">
-          <a
-            href={assetUrl("Karthik_Veeranala_Resume.pdf")}
-            download="Karthik_Veeranala_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-mono text-[#16d6bd] border border-[#16d6bd]/40 bg-[#16d6bd]/10 rounded-sm"
-            aria-label="Download Resume"
-          >
-            <Download size={12} />
-            <span>PDF</span>
-          </a>
+        {/* Right: Social Icon Buttons (Orange rounded squares matching Trent) */}
+        <div className="hidden sm:flex items-center gap-2">
+          {SOCIAL_LINKS.map((soc) => {
+            const Icon = soc.icon;
+            return (
+              <a
+                key={soc.name}
+                href={soc.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 flex items-center justify-center bg-[#ff6123] hover:bg-[#ff8547] text-[#fafaf9] rounded-md transition-all shadow-sm hover:-translate-y-0.5"
+                title={soc.name}
+                aria-label={soc.name}
+              >
+                <Icon size={17} />
+              </a>
+            );
+          })}
+        </div>
+
+        {/* Mobile Hamburger Menu Toggle */}
+        <div className="flex lg:hidden items-center gap-2">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 text-[#16d6bd] hover:text-white border border-[#16d6bd]/30 rounded-sm bg-[#16d6bd]/5"
-            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={mobileMenuOpen}
+            className="p-2 text-[#fafaf9] hover:text-[#ff6123] bg-[#20354b] rounded-md transition-colors"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Dropdown Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#090d0d]/98 border-b border-[#d5e3de]/15 px-4 pt-3 pb-5 space-y-1 shadow-2xl backdrop-blur-xl">
-          {NAV_ITEMS.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className={`w-full text-left px-3 py-2.5 rounded-sm font-mono text-xs tracking-wider uppercase transition-colors flex items-center justify-between ${activeSection === item.id ? "bg-[#16d6bd]/15 text-[#16d6bd] border-l-2 border-[#16d6bd]" : "text-[#77847f] hover:text-[#f0f2ed] hover:bg-[#121a19]"}`}
-            >
-              <span>{item.label}</span>
-              <span className="text-[10px] text-[#46514e]">#0{NAV_ITEMS.findIndex((n) => n.id === item.id) + 1}</span>
-            </button>
-          ))}
-          <div className="pt-2">
-            <a
-              href={assetUrl("Karthik_Veeranala_Resume.pdf")}
-              download="Karthik_Veeranala_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono font-medium text-[#090d0d] bg-[#16d6bd] hover:bg-[#16d6bd]/90 transition-all rounded-sm shadow-md"
-            >
-              <Download size={14} />
-              <span>DOWNLOAD RESUME (PDF)</span>
-            </a>
+        <div className="lg:hidden bg-[#172a3f] border-t border-[#20354b] px-4 py-4 space-y-2 shadow-2xl">
+          <div className="grid grid-cols-2 gap-2 pb-3 border-b border-[#20354b]">
+            {NAV_ITEMS.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`text-left px-3 py-2 rounded font-bold text-sm lowercase transition-colors ${
+                  activeSection === item.id
+                    ? "bg-[#ff6123] text-[#fafaf9]"
+                    : "text-[#b0c4de] hover:text-[#fafaf9] hover:bg-[#20354b]"
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile Social Icons */}
+          <div className="flex items-center justify-center gap-3 pt-2">
+            {SOCIAL_LINKS.map((soc) => {
+              const Icon = soc.icon;
+              return (
+                <a
+                  key={soc.name}
+                  href={soc.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 flex items-center justify-center bg-[#ff6123] text-[#fafaf9] rounded-md"
+                  aria-label={soc.name}
+                >
+                  <Icon size={19} />
+                </a>
+              );
+            })}
           </div>
         </div>
       )}

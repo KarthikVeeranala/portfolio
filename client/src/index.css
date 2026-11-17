@@ -1,22 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 :root {
-  --bg: #090d0d;
-  --bg-elevated: #0e1414;
-  --bg-soft: #121a19;
-  --line: rgba(213, 227, 222, .12);
-  --line-strong: rgba(213, 227, 222, .24);
-  --ink: #dbe2df;
-  --muted: #77847f;
-  --muted-2: #46514e;
-  --teal: #16d6bd;
-  --teal-dim: #0b7f73;
-  --bone: #f0f2ed;
-  --rust: #c26f53;
-  --sans: 'Space Grotesk', sans-serif;
-  --mono: 'IBM Plex Mono', monospace;
+  /* Trent Polack Design System Tokens */
+  --trent-navy: #172a3f;
+  --trent-navy-dark: #131f2d;
+  --trent-card-surface: #1a2b3d;
+  --trent-card-sub: #20354b;
+  --trent-orange: #ff6123;
+  --trent-amber: #ff9921;
+  --trent-white: #fafaf9;
+  --trent-slate: #b0c4de;
+  --trent-muted: #7994b5;
+  --trent-border: rgba(147, 184, 227, 0.18);
+  --trent-border-orange: #ff6123;
+
+  /* Typography */
+  --font-display: 'Archivo Black', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Archivo', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Legacy aliases mapped to Trent tokens */
+  --bg: #131f2d;
+  --bg-elevated: #172a3f;
+  --bg-soft: #1a2b3d;
+  --line: rgba(147, 184, 227, 0.18);
+  --line-strong: #ff6123;
+  --ink: #fafaf9;
+  --muted: #b0c4de;
+  --muted-2: #7994b5;
+  --teal: #ff6123;
+  --teal-dim: #d44d18;
+  --bone: #fafaf9;
+  --rust: #ff9921;
 }
 
 * {
@@ -25,44 +42,48 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--bg);
+  background-color: var(--trent-navy-dark);
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  background-color: var(--bg);
-  color: var(--ink);
-  font-family: var(--sans);
+  background-color: var(--trent-navy-dark);
+  color: var(--trent-white);
+  font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.6;
 }
 
-/* Custom Scrollbar */
+/* Headings font */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Custom 14px Webkit Scrollbar (Trent Polack signature) */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 14px;
+  height: 14px;
 }
 ::-webkit-scrollbar-track {
-  background: #090d0d;
+  background: rgba(255, 97, 35, 0.22);
 }
 ::-webkit-scrollbar-thumb {
-  background: #121a19;
-  border: 1px solid rgba(22, 214, 189, 0.2);
-  border-radius: 2px;
+  background: #ff6123;
+  border-radius: 0px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #16d6bd;
+  background: #ff8547;
 }
 
 /* Selection & Focus */
 ::selection {
-  color: #090d0d;
-  background-color: #16d6bd;
+  color: #172a3f;
+  background-color: #ff6123;
 }
 
 :focus-visible {
-  outline: 2px solid #16d6bd;
+  outline: 3px solid #ff6123;
   outline-offset: 2px;
 }
 
@@ -74,4 +95,35 @@ img, video {
 
 button {
   cursor: pointer;
+  font-family: inherit;
+}
+
+/* Link underline highlighter */
+.trent-link {
+  position: relative;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+}
+.trent-link:hover {
+  color: #ff6123;
+}
+
+/* Section Backgrounds with Overlay */
+.section-with-bg {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.section-overlay-navy {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(19, 31, 45, 0.82);
+  pointer-events: none;
+}
+.section-overlay-hero {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(230, 83, 27, 0.58) 0%, rgba(23, 42, 63, 0.78) 100%);
+  pointer-events: none;
 }

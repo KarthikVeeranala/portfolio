@@ -1,74 +1,56 @@
-import { Award, Gamepad2, Sparkles, Trophy } from "lucide-react";
+import { Trophy } from "lucide-react";
 import { ACHIEVEMENTS } from "../data/portfolioData";
 
-interface AchievementsProps {
-  onOpenLogicBeast: () => void;
-}
-
-export default function Achievements({ onOpenLogicBeast }: AchievementsProps) {
+export default function Achievements() {
   return (
-    <section id="achievements" className="py-20 sm:py-28 border-b border-[#d5e3de]/10 bg-[#090d0d]">
+    <section id="achievements" className="relative py-24 sm:py-32 bg-[#131f2d] border-b-[15px] border-[#ff6123]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div>
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 mb-3 border border-[#16d6bd]/30 bg-[#16d6bd]/5 rounded-sm">
-              <span className="text-[11px] font-mono text-[#16d6bd] tracking-widest uppercase">
-                04 // AWARDS &amp; RECOGNITION
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-bold text-[#f0f2ed] tracking-tight">
-              Honors &amp; Hackathon Victories
-            </h2>
-            <p className="text-sm sm:text-base text-[#77847f] mt-2 max-w-2xl font-mono">
-              Factual, competitive sprint recognitions and major game developer conference showcase selections.
-            </p>
-          </div>
+        <div className="mb-14">
+          <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-black uppercase text-[#fafaf9] tracking-tight mb-4">
+            HONORS &amp; RECOGNITION
+          </h2>
+          <div className="w-44 h-3 bg-[#ff6123] mb-6" />
 
-          {/* Interactive Arcade Mini-Game CTA */}
-          <button
-            onClick={onOpenLogicBeast}
-            className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-mono font-semibold text-[#16d6bd] border border-[#16d6bd]/40 bg-[#16d6bd]/10 hover:bg-[#16d6bd] hover:text-[#090d0d] transition-all rounded-sm cursor-pointer self-start md:self-auto shadow-md"
-            title="Launch Break the LOGIC BEAST timing reflex challenge"
-          >
-            <Gamepad2 size={15} />
-            <span>PLAY TIMING CHALLENGE: LOGIC BEAST</span>
-          </button>
+          <p className="text-base sm:text-xl text-[#b0c4de] max-w-3xl leading-relaxed font-normal">
+            Factual, competitive sprint recognitions and major game developer conference showcase selections.
+          </p>
         </div>
 
         {/* 4 Achievements Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {ACHIEVEMENTS.map((ach, idx) => (
             <div
               key={idx}
-              className="p-5 bg-[#0e1414] border border-[#d5e3de]/15 hover:border-[#16d6bd]/50 rounded-sm transition-colors flex flex-col justify-between"
+              className="p-6 bg-[#172a3f] border-2 border-[#20354b] hover:border-[#ff6123] rounded-lg transition-all shadow-xl flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="p-2 bg-[#121a19] border border-[#16d6bd]/30 text-[#16d6bd] rounded-sm">
-                    <Trophy size={16} />
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <span className="p-2.5 bg-[#20354b] text-[#ff6123] rounded-md border border-[rgba(147,184,227,0.18)]">
+                    <Trophy size={18} />
                   </span>
-                  <span className="px-2 py-0.5 text-[10px] font-mono font-bold tracking-wider text-[#090d0d] bg-[#16d6bd] rounded-sm">
+                  <span className="px-2.5 py-1 font-display text-[11px] font-black tracking-wider uppercase text-white bg-[#ff6123] rounded">
                     {ach.badge}
                   </span>
                 </div>
 
-                <h3 className="text-base sm:text-lg font-sans font-bold text-[#f0f2ed] mb-1">
+                <h3 className="font-display text-base sm:text-lg font-black text-[#fafaf9] uppercase mb-1">
                   {ach.title}
                 </h3>
 
-                <div className="text-xs font-mono text-[#16d6bd] font-medium mb-3">
+                <div className="text-xs font-bold text-[#ff9921] uppercase mb-3">
                   {ach.event}
                 </div>
 
-                <p className="text-xs text-[#dbe2df]/80 leading-relaxed mb-4">
+                <p className="text-xs sm:text-sm text-[#b0c4de] leading-relaxed mb-4">
                   {ach.description}
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-[#d5e3de]/10 flex items-center justify-between text-[10px] font-mono text-[#77847f]">
+              <div className="pt-3 border-t border-[#20354b] flex items-center justify-between text-xs font-bold text-[#b0c4de]">
                 <span>YEAR: {ach.date}</span>
-                <span className="text-[#16d6bd]">VERIFIED</span>
+                <span className="text-[#ff9921]">VERIFIED</span>
               </div>
             </div>
           ))}
