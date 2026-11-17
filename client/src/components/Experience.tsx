@@ -7,7 +7,7 @@ export default function Experience() {
       id="experience"
       className="relative py-24 sm:py-32 section-with-bg bg-[#080808] border-b-[15px] border-[#ff4d00]"
       style={{
-        backgroundImage: `url(${assetUrl("assets/backgrounds/trent_bg_book_art.jpg")})`,
+        backgroundImage: `url(${assetUrl("assets/backgrounds/bg_career_byteoasis.webp")})`,
       }}
     >
       {/* Dark Carbon Overlay */}

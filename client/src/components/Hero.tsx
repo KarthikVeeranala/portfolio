@@ -44,12 +44,12 @@ export default function Hero({ onOpenDemoReel }: HeroProps) {
       id="hero"
       className="relative pt-32 pb-24 sm:pt-40 sm:pb-32 overflow-hidden section-with-bg bg-[#080808]"
       style={{
-        backgroundImage: `url(${assetUrl("assets/backgrounds/trent_bg_hero_sh.png")})`,
+        backgroundImage: `url(${assetUrl("assets/backgrounds/bg_hero_interlude.webp")})`,
       }}
     >
-      {/* Warm Tangerine / Carbon Overlay */}
-      <div className="absolute inset-0 bg-[#ff4d00]/50 mix-blend-multiply pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#101012]/60 via-transparent to-[#080808]/95 pointer-events-none" />
+      {/* Subtle Tangerine / Carbon Vignette Overlay */}
+      <div className="absolute inset-0 bg-[#ff4d00]/20 mix-blend-multiply pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/45 via-transparent to-[#080808]/85 pointer-events-none" />
 
       {/* Main Content Container */}
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 flex flex-col items-center">

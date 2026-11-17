@@ -28,7 +28,7 @@ export default function Contact() {
       id="contact"
       className="relative py-24 sm:py-32 section-with-bg bg-[#080808] border-b-[15px] border-[#ff4d00]"
       style={{
-        backgroundImage: `url(${assetUrl("assets/backgrounds/trent_bg_redfall.jpg")})`,
+        backgroundImage: `url(${assetUrl("assets/backgrounds/bg_contact_interlude_slalom.webp")})`,
       }}
     >
       {/* Dark Carbon Overlay */}

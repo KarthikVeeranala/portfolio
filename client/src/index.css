@@ -118,7 +118,7 @@ button {
 .section-overlay-navy {
   position: absolute;
   inset: 0;
-  background-color: rgba(8, 8, 8, 0.88);
+  background-color: rgba(8, 8, 8, 0.78);
   pointer-events: none;
 }
 .section-overlay-hero {

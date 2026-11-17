@@ -24,7 +24,7 @@ export default function FeaturedProjects({ onOpenPhaserGame }: FeaturedProjectsP
       id="projects"
       className="relative py-24 sm:py-32 section-with-bg bg-[#080808] border-b-[15px] border-[#ff4d00]"
       style={{
-        backgroundImage: `url(${assetUrl("assets/backgrounds/trent_bg_returnal.jpg")})`,
+        backgroundImage: `url(${assetUrl("assets/backgrounds/bg_projects_aethel.webp")})`,
       }}
     >
       {/* Dark Navy Overlay (82% opacity to let background art subtly bleed through) */}
