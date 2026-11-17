@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ArrowUp } from "lucide-react";
 
 export default function ToTopButton() {
   const [visible, setVisible] = useState(false);
@@ -20,11 +21,11 @@ export default function ToTopButton() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-6 right-6 z-50 bg-[#ff6123] hover:bg-[#ff8547] text-[#fafaf9] font-display text-[11px] font-black uppercase tracking-wider px-5 py-2.5 rounded-full border-4 border-[#fafaf9] shadow-2xl transition-all hover:scale-105 active:scale-95 cursor-pointer"
+      className="fixed bottom-6 right-6 z-50 bg-[#ff6123] hover:bg-[#ff8547] text-[#fafaf9] p-3 sm:p-3.5 rounded-full border-4 border-[#fafaf9] shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer flex items-center justify-center"
       aria-label="Scroll back to top"
       title="Back to top"
     >
-      TO TOP
+      <ArrowUp size={22} className="stroke-[3]" />
     </button>
   );
 }

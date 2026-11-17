@@ -9,7 +9,7 @@ export default function Contact() {
   const [senderEmail, setSenderEmail] = useState("");
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("karthikveeranala09@gmail.com");
+    navigator.clipboard.writeText("veeranalakarthik@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
@@ -20,7 +20,7 @@ export default function Contact() {
     const mailtoBody = encodeURIComponent(
       `Hello Karthik,\n\n${message}\n\nBest regards,\n${senderEmail}`
     );
-    window.location.href = `mailto:karthikveeranala09@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+    window.location.href = `mailto:veeranalakarthik@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
   };
 
   return (
@@ -58,10 +58,10 @@ export default function Contact() {
                 DIRECT INBOX
               </span>
               <a
-                href="mailto:karthikveeranala09@gmail.com"
+                href="mailto:veeranalakarthik@gmail.com"
                 className="font-display text-lg sm:text-xl font-black text-[#fafaf9] hover:text-[#ff6123] transition-colors break-all block"
               >
-                karthikveeranala09@gmail.com
+                veeranalakarthik@gmail.com
               </a>
 
               <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -74,7 +74,7 @@ export default function Contact() {
                 </button>
 
                 <a
-                  href="mailto:karthikveeranala09@gmail.com"
+                  href="mailto:veeranalakarthik@gmail.com"
                   className="inline-flex items-center gap-1.5 px-4 py-2 font-display text-xs uppercase font-black text-[#fafaf9] border border-[#20354b] bg-[#20354b] hover:bg-[#ff9921] hover:text-[#172a3f] rounded transition-all"
                 >
                   <Mail size={14} />

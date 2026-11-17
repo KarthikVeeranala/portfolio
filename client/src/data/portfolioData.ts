@@ -747,3 +747,47 @@ export const ACHIEVEMENTS: AchievementItem[] = [
     description: "Ranked Top 3 for Geek'O'Wars, a third-person cyber survival combat shooter built in Unreal Engine 4.21 with custom reactive circuit shaders."
   }
 ];
+
+export interface CertificationItem {
+  title: string;
+  issuer: string;
+  date: string;
+  badge: string;
+  description: string;
+  skills: string[];
+}
+
+export const CERTIFICATIONS: CertificationItem[] = [
+  {
+    title: "CS50's Introduction to Game Development",
+    issuer: "Harvard University",
+    date: "Oct 2024",
+    badge: "HARVARD",
+    description: "Deep dive into 2D and 3D game engines, animation systems, state-driven gameplay mechanics, particle physics, and sound synthesis.",
+    skills: ["Game Engines", "State Machines", "2D/3D Animation", "Unity / C#", "Lua / LÖVE2D"]
+  },
+  {
+    title: "CS50x: Introduction to Computer Science",
+    issuer: "HarvardX",
+    date: "May 2025",
+    badge: "HARVARDX",
+    description: "Rigorous algorithmic foundations, manual heap and pointer memory management in C, algorithmic complexity, data structures, and Python.",
+    skills: ["Low-Level C", "Memory & Pointers", "Algorithms & Big-O", "Data Structures", "Python"]
+  },
+  {
+    title: "Unreal Engine 5: The Complete Beginner's Course",
+    issuer: "Udemy",
+    date: "May 2025",
+    badge: "UNREAL ENGINE",
+    description: "Production workflows in Unreal Engine 5: Blueprint architecture, Actor lifecycles, Niagara VFX, material shading, physics simulation, and landscape rendering.",
+    skills: ["Unreal Engine 5", "Blueprint Architecture", "Niagara VFX", "Physics", "Lighting"]
+  },
+  {
+    title: "Python for Data Science",
+    issuer: "Infosys Springboard",
+    date: "May 2025",
+    badge: "INFOSYS",
+    description: "Data analysis, data wrangling, scientific computing, and writing automated computational scripts in Python.",
+    skills: ["Python", "Data Processing", "Scripting", "Automation Pipelines"]
+  }
+];

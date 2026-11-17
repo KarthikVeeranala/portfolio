@@ -13,7 +13,7 @@ const FLOATING_SOCIALS = [
   },
   {
     name: "Instagram",
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/karthikkkk.v/",
     icon: Instagram,
   },
   {
@@ -23,12 +23,12 @@ const FLOATING_SOCIALS = [
   },
   {
     name: "Gmail",
-    href: "mailto:karthikveeranala09@gmail.com",
+    href: "mailto:veeranalakarthik@gmail.com",
     icon: Mail,
   },
   {
     name: "YouTube",
-    href: "https://www.youtube.com",
+    href: "https://www.youtube.com/@karthikkkk.v",
     icon: Youtube,
   },
 ];
@@ -54,7 +54,7 @@ export default function Hero({ onOpenDemoReel }: HeroProps) {
       {/* Main Content Container */}
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 flex flex-col items-center">
         
-        {/* Center Box: Orange Fill with 16px Solid Navy Border (Exact Trent Polack Style) */}
+        {/* Center Box: Orange Fill with 16px Solid Navy Border */}
         <div className="w-full max-w-4xl bg-[#ff6123] border-[16px] border-[#172a3f] rounded-lg shadow-2xl p-6 sm:p-10 md:p-14 text-left transition-transform hover:scale-[1.005]">
           
           {/* Main Title: HI, I'M KARTHIK! */}
@@ -102,7 +102,7 @@ export default function Hero({ onOpenDemoReel }: HeroProps) {
           </div>
         </div>
 
-        {/* Row of Floating White Rounded-Square Social Icons (Centered below the box) */}
+        {/* Row of Floating White Rounded-Square Social Icons */}
         <div className="flex items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
           {FLOATING_SOCIALS.map((soc) => {
             const Icon = soc.icon;

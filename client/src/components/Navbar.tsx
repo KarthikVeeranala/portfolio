@@ -10,6 +10,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: "hero", label: "home" },
   { id: "projects", label: "projects" },
   { id: "skills", label: "skills" },
+  { id: "certifications", label: "certifications" },
   { id: "experience", label: "career" },
   { id: "about", label: "about" },
   { id: "contact", label: "contact" }
@@ -30,19 +31,19 @@ const SOCIAL_LINKS = [
   },
   {
     name: "Gmail",
-    href: "mailto:karthikveeranala09@gmail.com",
+    href: "mailto:veeranalakarthik@gmail.com",
     icon: Mail,
     label: "gm"
   },
   {
     name: "Instagram",
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/karthikkkk.v/",
     icon: Instagram,
     label: "ig"
   },
   {
     name: "YouTube",
-    href: "https://www.youtube.com",
+    href: "https://www.youtube.com/@karthikkkk.v",
     icon: Youtube,
     label: "yt"
   }
@@ -91,14 +92,14 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#172a3f] border-b-[12px] border-[#ff6123] shadow-xl">
       <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* Left: Brand Monogram / Title */}
+        {/* Left: Brand Monogram / Title (Simplified to KARTHIK V) */}
         <button
           onClick={() => scrollToSection("hero")}
-          className="text-left focus:outline-none transition-transform hover:scale-[1.01]"
-          aria-label="Karthik Veeranala's Internet Website"
+          className="text-left focus:outline-none transition-transform hover:scale-[1.02] flex items-center gap-2"
+          aria-label="Karthik V Home"
         >
-          <span className="font-display font-black text-base sm:text-lg lg:text-xl uppercase tracking-tight text-[#ff6123]">
-            KARTHIK VEERANALA'S INTERNET WEBSITE
+          <span className="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-[#ff6123]">
+            KARTHIK V
           </span>
         </button>
 
@@ -123,7 +124,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Right: Social Icon Buttons (Orange rounded squares matching Trent) */}
+        {/* Right: Social Icon Buttons (Orange rounded squares) */}
         <div className="hidden sm:flex items-center gap-2">
           {SOCIAL_LINKS.map((soc) => {
             const Icon = soc.icon;

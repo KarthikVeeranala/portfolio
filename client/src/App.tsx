@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import FeaturedProjects from "./components/FeaturedProjects";
 import Skills from "./components/Skills";
+import Certifications from "./components/Certifications";
 import Experience from "./components/Experience";
 import Achievements from "./components/Achievements";
 import About from "./components/About";
@@ -33,6 +34,9 @@ export default function App() {
 
           {/* Section 02: Technical Skills */}
           <Skills />
+
+          {/* Section 02.5: Certifications */}
+          <Certifications />
 
           {/* Section 03: Professional Experience */}
           <Experience />
