@@ -3,37 +3,37 @@
 @import "tw-animate-css";
 
 :root {
-  /* Trent Polack Design System Tokens */
-  --trent-navy: #172a3f;
-  --trent-navy-dark: #131f2d;
-  --trent-card-surface: #1a2b3d;
-  --trent-card-sub: #20354b;
-  --trent-orange: #ff6123;
-  --trent-amber: #ff9921;
-  --trent-white: #fafaf9;
-  --trent-slate: #b0c4de;
-  --trent-muted: #7994b5;
-  --trent-border: rgba(147, 184, 227, 0.18);
-  --trent-border-orange: #ff6123;
+  /* Concept 5: Stark Brutalist & Safety Tangerine */
+  --trent-navy: #101012;
+  --trent-navy-dark: #080808;
+  --trent-card-surface: #141416;
+  --trent-card-sub: #1a1a1e;
+  --trent-orange: #ff4d00;
+  --trent-amber: #ff7700;
+  --trent-white: #f4f4f5;
+  --trent-slate: #a1a1aa;
+  --trent-muted: #71717a;
+  --trent-border: rgba(255, 255, 255, 0.12);
+  --trent-border-orange: #ff4d00;
 
   /* Typography */
   --font-display: 'Archivo Black', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Archivo', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 
-  /* Legacy aliases mapped to Trent tokens */
-  --bg: #131f2d;
-  --bg-elevated: #172a3f;
-  --bg-soft: #1a2b3d;
-  --line: rgba(147, 184, 227, 0.18);
-  --line-strong: #ff6123;
-  --ink: #fafaf9;
-  --muted: #b0c4de;
-  --muted-2: #7994b5;
-  --teal: #ff6123;
-  --teal-dim: #d44d18;
-  --bone: #fafaf9;
-  --rust: #ff9921;
+  /* Legacy aliases mapped to Concept 5 tokens */
+  --bg: #080808;
+  --bg-elevated: #101012;
+  --bg-soft: #141416;
+  --line: rgba(255, 255, 255, 0.12);
+  --line-strong: #ff4d00;
+  --ink: #f4f4f5;
+  --muted: #a1a1aa;
+  --muted-2: #71717a;
+  --teal: #ff4d00;
+  --teal-dim: #cc3e00;
+  --bone: #f4f4f5;
+  --rust: #ff7700;
 }
 
 * {
@@ -66,24 +66,24 @@ h1, h2, h3, h4, .font-display {
   height: 14px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(255, 97, 35, 0.22);
+  background: #141416;
 }
 ::-webkit-scrollbar-thumb {
-  background: #ff6123;
+  background: #ff4d00;
   border-radius: 0px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff8547;
+  background: #ff661a;
 }
 
 /* Selection & Focus */
 ::selection {
-  color: #172a3f;
-  background-color: #ff6123;
+  color: #080808;
+  background-color: #ff4d00;
 }
 
 :focus-visible {
-  outline: 3px solid #ff6123;
+  outline: 3px solid #ff4d00;
   outline-offset: 2px;
 }
 
@@ -105,7 +105,7 @@ button {
   transition: color 0.15s ease-in-out;
 }
 .trent-link:hover {
-  color: #ff6123;
+  color: #ff4d00;
 }
 
 /* Section Backgrounds with Overlay */
@@ -118,12 +118,12 @@ button {
 .section-overlay-navy {
   position: absolute;
   inset: 0;
-  background-color: rgba(19, 31, 45, 0.82);
+  background-color: rgba(8, 8, 8, 0.88);
   pointer-events: none;
 }
 .section-overlay-hero {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(230, 83, 27, 0.58) 0%, rgba(23, 42, 63, 0.78) 100%);
+  background: linear-gradient(180deg, rgba(255, 77, 0, 0.52) 0%, rgba(8, 8, 8, 0.88) 100%);
   pointer-events: none;
 }

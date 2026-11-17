@@ -9,8 +9,10 @@ interface DemoReelModalProps {
 
 const CHAPTERS = [
   { time: 0, title: "00:00 — The Interlude (6-DOF Flight Combat)" },
-  { time: 42, title: "00:42 — Cyrus 365 (UE 5.7 C++ Automation Harness)" },
-  { time: 85, title: "01:25 — ByteOasis (Terminal Logic & Camera Systems)" }
+  { time: 42, title: "00:42 — Cyrus 365 (Enterprise UE5 Harness)" },
+  { time: 58, title: "00:58 — ByteOasis (Terminal Logic & Puzzles)" },
+  { time: 86, title: "01:26 — Geek'O'Wars (Third-Person Cyber Survival)" },
+  { time: 107, title: "01:47 — City of Aethel (2D Combat & Boss AI)" }
 ];
 
 export default function DemoReelModal({ isOpen, onClose }: DemoReelModalProps) {
@@ -95,20 +97,20 @@ export default function DemoReelModal({ isOpen, onClose }: DemoReelModalProps) {
       aria-labelledby="reel-modal-title"
     >
       <div
-        className="relative w-full max-w-4xl bg-[#172a3f] border-4 border-[#ff6123] rounded-lg shadow-2xl overflow-hidden my-auto"
+        className="relative w-full max-w-4xl bg-[#141416] border-4 border-[#ff4d00] rounded-lg shadow-2xl overflow-hidden my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-4 sm:px-6 py-4 bg-[#131f2d] border-b-2 border-[#20354b]">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-4 bg-[#101012] border-b-2 border-[#27272a]">
           <div className="flex items-center gap-2.5">
-            <span className="w-3 h-3 bg-[#ff6123] rounded-sm" />
-            <h3 id="reel-modal-title" className="font-display text-sm sm:text-base font-black text-[#fafaf9] uppercase">
+            <span className="w-3 h-3 bg-[#ff4d00] rounded-sm" />
+            <h3 id="reel-modal-title" className="font-display text-sm sm:text-base font-black text-[#f4f4f5] uppercase">
               KARTHIK VEERANALA // GAME PROGRAMMER DEMO REEL (02:13)
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 text-[#b0c4de] hover:text-[#fafaf9] hover:bg-[#20354b] border border-[#20354b] rounded transition-colors cursor-pointer"
+            className="p-1.5 text-[#a1a1aa] hover:text-[#f4f4f5] hover:bg-[#27272a] border border-[#27272a] rounded transition-colors cursor-pointer"
             aria-label="Close demo reel"
           >
             <X size={18} />
@@ -118,12 +120,12 @@ export default function DemoReelModal({ isOpen, onClose }: DemoReelModalProps) {
         {/* Video Player */}
         <div className="relative aspect-video bg-black flex items-center justify-center overflow-hidden">
           {loadError ? (
-            <div className="p-6 text-center text-xs text-[#ff6123] space-y-2">
+            <div className="p-6 text-center text-xs text-[#ff4d00] space-y-2">
               <p>Demo reel video could not be loaded directly in this browser session.</p>
               <a
                 href={assetUrl("karthik_veeranala_demo_reel.mp4")}
                 download="karthik_veeranala_demo_reel.mp4"
-                className="inline-block px-4 py-2 bg-[#ff6123] text-white font-bold rounded"
+                className="inline-block px-4 py-2 bg-[#ff4d00] text-white font-bold rounded"
               >
                 Download MP4 Directly
               </a>
@@ -148,7 +150,7 @@ export default function DemoReelModal({ isOpen, onClose }: DemoReelModalProps) {
               className="absolute inset-0 flex items-center justify-center bg-black/40 group cursor-pointer"
               aria-label="Play demo reel"
             >
-              <span className="w-16 h-16 rounded-full bg-[#ff6123] text-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+              <span className="w-16 h-16 rounded-full bg-[#ff4d00] text-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
                 <Play size={28} className="fill-current ml-1" />
               </span>
             </button>
@@ -156,10 +158,10 @@ export default function DemoReelModal({ isOpen, onClose }: DemoReelModalProps) {
         </div>
 
         {/* Custom Controls Bar */}
-        <div className="p-4 bg-[#131f2d] border-t border-[#20354b] space-y-3 text-xs">
+        <div className="p-4 bg-[#101012] border-t border-[#27272a] space-y-3 text-xs">
           {/* Progress Seekbar */}
           <div className="flex items-center gap-3">
-            <span className="text-[11px] font-bold text-[#ff6123] min-w-[38px]">{formatTime(currentTime)}</span>
+            <span className="text-[11px] font-bold text-[#ff4d00] min-w-[38px]">{formatTime(currentTime)}</span>
             <input
               type="range"
               min={0}
@@ -167,10 +169,10 @@ export default function DemoReelModal({ isOpen, onClose }: DemoReelModalProps) {
               step={0.1}
               value={currentTime}
               onChange={handleSeek}
-              className="flex-1 h-1.5 bg-[#20354b] rounded-lg appearance-none cursor-pointer accent-[#ff6123]"
+              className="flex-1 h-1.5 bg-[#27272a] rounded-lg appearance-none cursor-pointer accent-[#ff4d00]"
               aria-label="Seek video progress"
             />
-            <span className="text-[11px] text-[#b0c4de] min-w-[38px]">{formatTime(duration || 133)}</span>
+            <span className="text-[11px] text-[#a1a1aa] min-w-[38px]">{formatTime(duration || 133)}</span>
           </div>
 
           {/* Buttons Row */}
@@ -178,7 +180,7 @@ export default function DemoReelModal({ isOpen, onClose }: DemoReelModalProps) {
             <div className="flex items-center gap-2">
               <button
                 onClick={togglePlay}
-                className="px-4 py-2 bg-[#ff6123] hover:bg-[#ff8547] text-white font-bold rounded flex items-center gap-1.5 cursor-pointer shadow-sm"
+                className="px-4 py-2 bg-[#ff4d00] hover:bg-[#ff661a] text-white font-bold rounded flex items-center gap-1.5 cursor-pointer shadow-sm"
               >
                 {isPlaying ? <Pause size={14} /> : <Play size={14} className="fill-current" />}
                 <span>{isPlaying ? "PAUSE" : "PLAY"}</span>
@@ -186,26 +188,26 @@ export default function DemoReelModal({ isOpen, onClose }: DemoReelModalProps) {
 
               <button
                 onClick={toggleMute}
-                className="p-2 border border-[#20354b] bg-[#172a3f] text-[#b0c4de] hover:text-[#fafaf9] rounded cursor-pointer"
+                className="p-2 border border-[#27272a] bg-[#141416] text-[#a1a1aa] hover:text-[#f4f4f5] rounded cursor-pointer"
                 aria-label={isMuted ? "Unmute audio" : "Mute audio"}
               >
                 {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
               </button>
             </div>
 
-            <span className="text-[11px] font-bold text-[#b0c4de] hidden sm:inline">
+            <span className="text-[11px] font-bold text-[#a1a1aa] hidden sm:inline">
               1080p60 H.264 // UNREAL ENGINE 5.7 &amp; UE4
             </span>
           </div>
 
           {/* Chapter Quick Jump Buttons */}
-          <div className="pt-2 border-t border-[#20354b] flex flex-wrap items-center gap-1.5">
-            <span className="text-[10px] font-bold text-[#b0c4de] mr-1 uppercase">CHAPTERS:</span>
+          <div className="pt-2 border-t border-[#27272a] flex flex-wrap items-center gap-1.5">
+            <span className="text-[10px] font-bold text-[#a1a1aa] mr-1 uppercase">CHAPTERS:</span>
             {CHAPTERS.map((ch, idx) => (
               <button
                 key={idx}
                 onClick={() => jumpToChapter(ch.time)}
-                className="px-2.5 py-1 text-[11px] font-bold bg-[#172a3f] hover:bg-[#ff6123] text-[#b0c4de] hover:text-white border border-[#20354b] rounded transition-colors cursor-pointer"
+                className="px-2.5 py-1 text-[11px] font-bold bg-[#141416] hover:bg-[#ff4d00] text-[#a1a1aa] hover:text-white border border-[#27272a] rounded transition-colors cursor-pointer"
               >
                 {ch.title}
               </button>
