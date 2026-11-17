@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ArrowUpRight, Gamepad2, Wrench, ShieldCheck, Cpu } from "lucide-react";
-import { PROJECTS, ProjectItem, assetUrl } from "../data/portfolioData";
+import { PROJECTS, ProjectItem } from "../data/portfolioData";
 import ProjectDetailDrawer from "./ProjectDetailDrawer";
 
 interface FeaturedProjectsProps {
@@ -22,20 +22,14 @@ export default function FeaturedProjects({ onOpenPhaserGame }: FeaturedProjectsP
   return (
     <section
       id="projects"
-      className="relative py-24 sm:py-32 section-with-bg bg-[#080808] border-b-[15px] border-[#ff4d00]"
-      style={{
-        backgroundImage: `url(${assetUrl("assets/backgrounds/bg_projects_aethel.webp")})`,
-      }}
+      className="relative py-24 sm:py-32 bg-[#080808] border-b-[15px] border-[#ff4d00]"
     >
-      {/* Dark Navy Overlay (82% opacity to let background art subtly bleed through) */}
-      <div className="section-overlay-navy pointer-events-none" />
-
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         
         {/* Section Header */}
         <div className="mb-14">
           <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-black uppercase text-[#f4f4f5] tracking-tight mb-4">
-            VIDEO GAMES
+            PROJECTS
           </h2>
           <div className="w-44 h-3 bg-[#ff4d00] mb-6" />
 
