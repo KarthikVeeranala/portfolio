@@ -42,14 +42,26 @@ export default function Hero({ onOpenDemoReel }: HeroProps) {
   return (
     <section
       id="hero"
-      className="relative pt-32 pb-24 sm:pt-40 sm:pb-32 overflow-hidden section-with-bg bg-[#080808]"
-      style={{
-        backgroundImage: `url(${assetUrl("assets/backgrounds/bg_hero_interlude.webp")})`,
-      }}
+      className="relative pt-32 pb-24 sm:pt-40 sm:pb-32 overflow-hidden bg-[#080808]"
     >
-      {/* Subtle Tangerine / Carbon Vignette Overlay */}
-      <div className="absolute inset-0 bg-[#ff4d00]/20 mix-blend-multiply pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/45 via-transparent to-[#080808]/85 pointer-events-none" />
+      {/* Looping Cinematic Gameplay Background Video (The Interlude) */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        poster={assetUrl("assets/backgrounds/bg_hero_interlude.webp")}
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover object-center scale-[1.03] blur-[1.5px] opacity-85 pointer-events-none select-none"
+      >
+        <source src={assetUrl("assets/backgrounds/bg_hero_interlude_loop.mp4")} type="video/mp4" />
+      </video>
+
+      {/* Dark Carbon Background Layer + Subtle Warm Tangerine Depth Overlay */}
+      <div className="absolute inset-0 bg-[#080808]/62 pointer-events-none" />
+      <div className="absolute inset-0 bg-[#ff4d00]/12 mix-blend-screen pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/60 via-[#080808]/25 to-[#080808]/92 pointer-events-none" />
 
       {/* Main Content Container */}
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 flex flex-col items-center">
