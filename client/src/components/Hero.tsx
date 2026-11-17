@@ -65,9 +65,9 @@ export default function Hero({ onOpenDemoReel }: HeroProps) {
       {/* Main Content Container */}
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 flex flex-col items-center">
         
-        {/* Center Box: Exact Velvet Crimson Radial Gradient with 16px Solid Carbon Border */}
+        {/* Center Box: Exact Velvet Crimson Radial Gradient */}
         <div
-          className="w-full max-w-4xl border-[16px] border-[#101012] rounded-lg shadow-2xl p-6 sm:p-10 md:p-14 text-left transition-transform hover:scale-[1.005]"
+          className="w-full max-w-4xl rounded-lg shadow-2xl p-6 sm:p-10 md:p-14 text-left transition-transform hover:scale-[1.005]"
           style={{
             background: "radial-gradient(circle at 50% 48%, #7d0302 0%, #4a0001 65%, #1e0000 100%)",
           }}
