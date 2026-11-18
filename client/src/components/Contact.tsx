@@ -163,7 +163,7 @@ export default function Contact() {
                   required
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  placeholder="Game Programmer Opportunity / Cyrus 365 Follow-up"
+                  placeholder="Game Programmer / Game Design Opportunity"
                   className="w-full px-4 py-2.5 bg-[#080808] border border-[#27272a] focus:border-[#9e0b0b] rounded text-sm text-white focus:outline-none"
                 />
               </div>

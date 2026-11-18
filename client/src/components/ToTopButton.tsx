@@ -21,7 +21,7 @@ export default function ToTopButton() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-6 right-6 z-50 bg-[#9e0b0b] hover:bg-[#bf1515] text-white p-3 sm:p-3.5 rounded-full border-4 border-white shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer flex items-center justify-center"
+      className="fixed bottom-6 right-6 z-40 bg-[#9e0b0b] hover:bg-[#bf1515] text-white p-3 sm:p-3.5 rounded-full border-4 border-white shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer flex items-center justify-center"
       aria-label="Scroll back to top"
       title="Back to top"
     >

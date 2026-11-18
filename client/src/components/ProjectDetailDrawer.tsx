@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Check, Copy, ExternalLink, Gamepad2, Play, Video, X } from "lucide-react";
+import { ExternalLink, Gamepad2, Video, X } from "lucide-react";
 import { ProjectItem } from "../data/portfolioData";
 
 interface ProjectDetailDrawerProps {
@@ -16,7 +16,6 @@ export default function ProjectDetailDrawer({
   onPlayPhaser,
   onOpenPhaserGame,
 }: ProjectDetailDrawerProps) {
-  const [copied, setCopied] = useState(false);
   const [selectedMediaIdx, setSelectedMediaIdx] = useState(0);
 
   const handlePlayPhaser = onPlayPhaser || onOpenPhaserGame;
@@ -28,12 +27,6 @@ export default function ProjectDetailDrawer({
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose]);
-
-  const copyCode = () => {
-    navigator.clipboard.writeText(project.technicalBreakdown.codeSnippet);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   const activeMedia = project.gallery[selectedMediaIdx] || project.gallery[0];
 
@@ -230,21 +223,25 @@ export default function ProjectDetailDrawer({
               {project.technicalBreakdown.architecture}
             </p>
 
-            <div className="relative bg-[#080808] border border-[#27272a] rounded overflow-hidden">
+            <div
+              className="relative bg-[#080808] border border-[#27272a] rounded overflow-hidden select-none"
+              style={{ userSelect: "none", WebkitUserSelect: "none", WebkitTouchCallout: "none" }}
+              onCopy={(e) => e.preventDefault()}
+              onCut={(e) => e.preventDefault()}
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
+            >
               <div className="flex items-center justify-between px-4 py-2.5 bg-[#141416] border-b border-[#27272a]">
                 <span className="text-xs font-bold text-white">
                   {project.technicalBreakdown.codeSnippetTitle}
                 </span>
-                <button
-                  onClick={copyCode}
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-bold uppercase text-white bg-[#1a1a1e] hover:bg-[#9e0b0b] border border-[#27272a] rounded transition-colors cursor-pointer"
-                >
-                  {copied ? <Check size={13} /> : <Copy size={13} />}
-                  <span>{copied ? "COPIED" : "COPY CODE"}</span>
-                </button>
               </div>
-              <pre className="p-4 text-xs font-mono text-[#d4d4d8] overflow-x-auto leading-relaxed">
-                <code>{project.technicalBreakdown.codeSnippet}</code>
+              <pre
+                className="p-4 text-xs font-mono text-[#d4d4d8] overflow-x-auto leading-relaxed select-none"
+                style={{ userSelect: "none", WebkitUserSelect: "none", WebkitTouchCallout: "none" }}
+                onCopy={(e) => e.preventDefault()}
+              >
+                <code className="select-none">{project.technicalBreakdown.codeSnippet}</code>
               </pre>
             </div>
           </div>
@@ -288,11 +285,11 @@ export default function ProjectDetailDrawer({
         </div>
 
         {/* Modal Footer */}
-        <div className="px-6 py-4 bg-[#101012] border-t border-[#27272a] flex items-center justify-between">
-          <span className="text-xs text-[#a1a1aa]">Press ESC to close</span>
+        <div className="px-4 sm:px-6 py-4 bg-[#101012] border-t border-[#27272a] flex items-center justify-end sm:justify-between">
+          <span className="hidden sm:inline text-xs text-[#a1a1aa]">Press ESC to close</span>
           <button
             onClick={onClose}
-            className="px-5 py-2 font-display text-xs uppercase font-black text-white bg-[#9e0b0b] hover:bg-[#bf1515] rounded transition-colors cursor-pointer"
+            className="w-full sm:w-auto px-5 py-2.5 sm:py-2 font-display text-xs uppercase font-black text-white bg-[#9e0b0b] hover:bg-[#bf1515] rounded transition-colors cursor-pointer"
           >
             CLOSE BREAKDOWN
           </button>

@@ -154,23 +154,13 @@ export default function DemoReelModal({ isOpen, onClose }: DemoReelModalProps) {
               KARTHIK VEERANALA // GAME PROGRAMMER DEMO REEL (02:13)
             </h3>
           </div>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={toggleFullscreen}
-              className="p-1.5 text-[#a1a1aa] hover:text-white hover:bg-[#27272a] border border-[#27272a] rounded transition-colors cursor-pointer"
-              aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
-              title={isFullscreen ? "Exit Fullscreen (F)" : "Fullscreen (F)"}
-            >
-              {isFullscreen ? <Minimize2 size={17} /> : <Maximize2 size={17} />}
-            </button>
-            <button
-              onClick={onClose}
-              className="p-1.5 text-[#a1a1aa] hover:text-white hover:bg-[#27272a] border border-[#27272a] rounded transition-colors cursor-pointer"
-              aria-label="Close demo reel"
-            >
-              <X size={18} />
-            </button>
-          </div>
+          <button
+            onClick={onClose}
+            className="p-1.5 text-[#a1a1aa] hover:text-white hover:bg-[#27272a] border border-[#27272a] rounded transition-colors cursor-pointer shrink-0"
+            aria-label="Close demo reel"
+          >
+            <X size={18} />
+          </button>
         </div>
 
         {/* Video Player */}

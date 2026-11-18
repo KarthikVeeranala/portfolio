@@ -3,54 +3,56 @@ import { assetUrl } from "../data/portfolioData";
 
 export default function Footer() {
   return (
-    <footer className="py-12 bg-[#080808] border-t-4 border-[#1a1a1e] text-xs text-[#a1a1aa]">
+    <footer className="py-10 pb-20 md:py-12 bg-[#080808] border-t-4 border-[#1a1a1e] text-xs text-[#a1a1aa]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Left: Brand Monogram */}
-        <div>
+        <div className="text-center md:text-left">
           <span className="font-display font-black text-lg uppercase text-white block mb-1">
             KARTHIK V
           </span>
           <span className="text-[#a1a1aa]">Hyderabad, India • Game Programmer &amp; Gameplay Developer</span>
         </div>
 
-        {/* Center: Links */}
-        <div className="flex items-center gap-4 text-xs font-bold text-[#d4d4d8]">
+        {/* Center: Links (Stacked cleanly on mobile, inline on desktop) */}
+        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-y-3 gap-x-3 text-xs font-bold text-[#d4d4d8]">
           <a
             href="mailto:veeranalakarthik@gmail.com"
-            className="hover:text-white transition-colors inline-flex items-center gap-1"
+            className="hover:text-white transition-colors inline-flex items-center gap-1.5"
           >
-            <Mail size={13} />
+            <Mail size={13} className="shrink-0" />
             <span>veeranalakarthik@gmail.com</span>
           </a>
-          <span>•</span>
-          <a
-            href={assetUrl("Karthik_Veeranala_Resume.pdf")}
-            download="Karthik_Veeranala_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white transition-colors inline-flex items-center gap-1"
-          >
-            <Download size={13} />
-            <span>Resume (PDF)</span>
-          </a>
-          <span>•</span>
-          <a
-            href="https://github.com/KarthikVeeranala"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white transition-colors"
-          >
-            GitHub
-          </a>
-          <span>•</span>
-          <a
-            href="https://linkedin.com/in/karthikveeranala"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white transition-colors"
-          >
-            LinkedIn
-          </a>
+          <span className="hidden sm:inline text-[#52525b]">•</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+            <a
+              href={assetUrl("Karthik_Veeranala_Resume.pdf")}
+              download="Karthik_Veeranala_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors inline-flex items-center gap-1"
+            >
+              <Download size={13} className="shrink-0" />
+              <span>Resume (PDF)</span>
+            </a>
+            <span className="text-[#52525b]">•</span>
+            <a
+              href="https://github.com/KarthikVeeranala"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              GitHub
+            </a>
+            <span className="text-[#52525b]">•</span>
+            <a
+              href="https://linkedin.com/in/karthikveeranala"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              LinkedIn
+            </a>
+          </div>
         </div>
 
         {/* Right: Copyright */}
